@@ -1,4 +1,5 @@
 const express = require('express');
+const { celebrate, Segments, Joi } = require('celebrate');
 
 const ongController = require('./controllers/ongController.js')
 const incidentController = require('./controllers/incidentController.js')
@@ -13,14 +14,50 @@ const routes = express.Router();
 **                      body(requisição em JSON para criar ou alterar recursos)
 */
 routes.get('/ong', ongController.index);
-routes.post('/ong', ongController.create);
 
-routes.get('/incident', incidentController.index);
-routes.post('/incident', incidentController.create);
-routes.delete('/incident/:id', incidentController.delete);
+routes.post('/ong', celebrate({
+    [Segments.BODY]: Joi.object().keys({
+        name: Joi.string().required(),
+        email: Joi.string().required().email(),
+        whatsapp: Joi.number().required().min(10).max(11),
+        city: Joi.string().required(),
+        uf: Joi.string().required().length(2)
+    })
+}), ongController.create);
 
-routes.get('/profile', profileController.index);
+routes.get('/incident', celebrate({
+    [Segments.QUERY]: Joi.object().keys({
+        page: Joi.number()
+    })
+}), incidentController.index);
 
-routes.post('/session', sessionController.create);
+routes.post('/incident', celebrate({
+    [Segments.BODY]: Joi.object().keys({
+        title: Joi.string().required(),
+        description: Joi.string().required(),
+        value: Joi.number().precision(2).positive().required()
+    }),
+    [Segments.HEADERS]: Joi.object({
+        authorization: Joi.string().required()
+    }).unknown()
+}), incidentController.create);
+
+routes.delete('/incident/:id', celebrate({
+    [Segments.PARAMS]: Joi.object().keys({
+        id: Joi.number().required()
+    })
+}), incidentController.delete);
+
+routes.get('/profile', celebrate({
+    [Segments.HEADERS]: Joi.object({
+        authorization: Joi.string().required()
+    }).unknown()    
+}), profileController.index);
+
+routes.post('/session', celebrate({
+    [Segments.BODY]: Joi.object().keys({
+        id: Joi.string().required()
+    })
+ }), sessionController.create);
 
 module.exports = routes;
