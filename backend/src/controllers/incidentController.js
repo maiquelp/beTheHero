@@ -19,7 +19,7 @@ module.exports = {
     async create(req, res) {
         const {title, description, value} = req.body;
 
-        const ong_id = req.headers.authorization;
+        const ong_id = req.userId;
     
         const [id] = await connection('incident').insert({
             title, description, value, ong_id 
@@ -30,7 +30,7 @@ module.exports = {
 
     async delete(req, res) {
         const {id} = req.params;
-        const ong_id = req.headers.authorization;
+        const ong_id = req.userId;
         
         const incident = await connection('incident').where('id', id).select('ong_id').first();
 

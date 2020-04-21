@@ -20,7 +20,6 @@ module.exports = {
         const id = generateId();
 
         const hasEmail = await connection('ong').where('email', email).select('email').first();
-
         
         try {
             if (hasEmail) {
