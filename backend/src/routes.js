@@ -8,6 +8,8 @@ const ongController = require('./controllers/ongController.js');
 const incidentController = require('./controllers/incidentController.js');
 const profileController = require('./controllers/profileController.js');
 const sessionController = require('./controllers/sessionController.js');
+const recoverController = require('./controllers/recoverController.js');
+const resetController = require('./controllers/resetController.js');
 
 const routes = express.Router();
 
@@ -45,7 +47,24 @@ routes.post('/session', celebrate({
     })
 }), sessionController.create);
 
-routes.use(auth); // Makes routes bellow pass throught authentication
+routes.put('/recover', celebrate({
+    [Segments.BODY]: Joi.object().keys({
+        email: Joi.string().required()
+    })
+}), recoverController.update);
+
+routes.put('/reset', celebrate({
+    [Segments.BODY]: Joi.object().keys({
+        password: Joi.string().required()
+    }),
+    [Segments.QUERY]: Joi.object().keys({
+        token: Joi.string().required(),
+        id: Joi.string().required()
+    })
+}), resetController.update);
+
+
+routes.use(auth); // Make routes bellow pass throught authentication
 
 routes.post('/incident', celebrate({
     [Segments.BODY]: Joi.object().keys({
