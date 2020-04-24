@@ -42,6 +42,9 @@ form textarea{
     resize: vertical;
 }
 
+h1{
+    color: #41414d;
+}
 
 .button {
     width: 100%;

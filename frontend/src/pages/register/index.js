@@ -12,6 +12,7 @@ const Register = () => {
 
     const [ name, setName ] = useState('');
     const [ email, setEmail ] = useState('');
+    const [ password, setPassword ] = useState('');
     const [ whatsapp, setWhatsapp ] = useState('');
     const [ city, setCity ] = useState('');
     const [ uf, setUf ] = useState('');
@@ -21,20 +22,18 @@ const Register = () => {
     const handleRegister = async e => {
         e.preventDefault();
 
-        const data = { name, email, whatsapp, city, uf }
+        const data = { name, email, password, whatsapp, city, uf }
 
         try {
-            const resp = await api.post('ong', data);
+            await api.post('ong', data);
 
-            console.log(data);
-
-            alert(`Cadastro efetuado com sucesso. Sua id: ${resp.data.id}`);
+            alert('Cadastro efetuado com sucesso.');
 
             history.push('/')
 
         } catch (err) {
 
-            alert('Erro no cadastro, tente novamente')
+            alert('Erro no cadastro, verifique os dados e tente novamente.')
         }
     }
 
@@ -55,7 +54,9 @@ const Register = () => {
                         onChange={ e => setName( e.target.value )} />
                     <input type="email" placeholder="E-mail" value={email} 
                         onChange={ e => setEmail( e.target.value ) } />
-                    <input placeholder="Whatsapp" value={whatsapp} 
+                    <input type="password" placeholder="Senha" value={password} 
+                        onChange={ e => setPassword( e.target.value ) } />
+                    <input placeholder="Whatsapp(DDD+Numero)" value={whatsapp} 
                         onChange={ e => setWhatsapp( e.target.value ) } />
                     <div className="input-group">
                         <input placeholder="Cidade" value={city} 
