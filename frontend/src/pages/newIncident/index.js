@@ -33,7 +33,7 @@ const NewIncident = () => {
             history.push('/profile')
 
         } catch (error) {
-            alert('Erro ao cadastrar, tent novamente')
+            alert('Erro ao cadastrar, tente novamente')
         }
     }
 

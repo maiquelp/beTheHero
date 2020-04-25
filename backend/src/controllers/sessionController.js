@@ -9,8 +9,6 @@ module.exports = {
 
         const user = await connection('ong').where('email', email).select('password', 'name', 'id').first();
 
-        console.log(user);
-
         const {name, id} = user;
 
         try {
