@@ -14,7 +14,7 @@ const NewIncident = () => {
     const [ description, setDescription ] = useState('');
     const [ value, setValue ] = useState('');
 
-    const ongId = localStorage.getItem('ongId');
+    const token = localStorage.getItem('token');
 
     const history = useHistory();
 
@@ -26,7 +26,7 @@ const NewIncident = () => {
         try {
             await api.post('incident', data, {
                 headers: {
-                    Authorization: ongId
+                    Authorization: `Bearer ${token}`
                 }
             })
 

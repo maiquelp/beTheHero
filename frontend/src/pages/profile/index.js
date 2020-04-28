@@ -11,25 +11,25 @@ const Profile = () => {
     const [incidents, setIncidents] = useState([]);
 
     const ongName = localStorage.getItem('ongName');
-    const ongId = localStorage.getItem('ongId');
+    const token = localStorage.getItem('token');
 
     const history = useHistory();
 
     useEffect( () => {
         api.get('profile', {
             headers: {
-                Authorization: ongId
+                Authorization: `Bearer ${token}`
             }
         }).then( res => {
             setIncidents(res.data)
         })
-    }, [ongId]);
+    }, [token]);
 
     const handleDeleteIncident = async id => {
         try {
             await api.delete(`incident/${id}`, {
                 headers: {
-                    Authorization: ongId
+                    Authorization: `Bearer ${token}`
                 }
             });
 

@@ -18,7 +18,7 @@ const Logon = props => {
 
         try {
             const res = await api.post('session', { email, password });
-            localStorage.setItem('ongId', res.data.id);
+            localStorage.setItem('token', res.data.token);
             localStorage.setItem('ongName', res.data.name);
 
             history.push('/profile');
@@ -35,7 +35,7 @@ const Logon = props => {
                 <img src={logoImg} alt="logo" />
                 <form onSubmit={handleLogin}>
                     <h1>Faça seu logon</h1>
-                    <input placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
+                    <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
                     <input type="password" placeholder="Senha" value={password} 
                         onChange={e => setPassword(e.target.value)} />
                     <button className="button" type="submit">Entrar</button>

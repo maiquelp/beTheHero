@@ -30,7 +30,7 @@ module.exports = {
                 id, name, email, password, whatsapp, city, uf
             });
     
-            return res.json({id, token: generateToken({id})})
+            return res.json({token: generateToken({id})})
 
         } catch (err) {
             return res.status(400).send({ error: 'Registration failed'})
