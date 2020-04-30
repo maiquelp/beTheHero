@@ -10,6 +10,7 @@ const profileController = require('./controllers/profileController.js');
 const sessionController = require('./controllers/sessionController.js');
 const recoverController = require('./controllers/recoverController.js');
 const resetController = require('./controllers/resetController.js');
+const verifyController = require('./controllers/verifyController.js');
 
 const routes = express.Router();
 
@@ -62,6 +63,14 @@ routes.put('/reset', celebrate({
         id: Joi.string().required()
     })
 }), resetController.update);
+
+routes.put('/verify', celebrate({
+    [Segments.QUERY]: Joi.object().keys({
+        token: Joi.string().required(),
+        id: Joi.string().required()
+    })
+}), verifyController.update);
+
 
 
 routes.use(auth); // Make routes bellow pass throught authentication

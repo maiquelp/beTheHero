@@ -1,8 +1,11 @@
 const connection = require('../database/connection');
-const generateId = require('../utils/generateId');
-const generateToken = require('../utils/generateToken');
 
+const generateId = require('../utils/generateId');
+const verifyMail = require('../utils/verifyMail');
 const bcrypt = require('bcryptjs');
+
+//const mailer = require('../config/mailer');
+
 
 module.exports = {
 
@@ -29,8 +32,10 @@ module.exports = {
             await connection('ong').insert({
                 id, name, email, password, whatsapp, city, uf
             });
-    
-            return res.json({token: generateToken({id})})
+
+            verifyMail(id, email);
+                
+            return res.status(204).send();
 
         } catch (err) {
             return res.status(400).send({ error: 'Registration failed'})

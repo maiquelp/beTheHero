@@ -8,7 +8,8 @@ exports.up = function(knex) {
         table.string('city').notNullable();
         table.string('uf', 2).notNullable();
         table.string('passwordResetToken');
-        table.string('passwordResetExpiration')
+        table.string('passwordResetExpiration');
+        table.boolean('verified').defaultTo(0)
     })
 };
 

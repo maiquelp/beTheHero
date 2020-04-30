@@ -8,11 +8,9 @@ module.exports = {
         const { email } = req.body;
 
         try {
-            const user = await connection('ong').where('email', email).select('email', 'id').first();
+            const {id} = await connection('ong').where('email', email).select('id').first();
 
             const token = generateId();
-
-            const id = user.id
 
             const now = new Date();
             now.setHours(now.getHours() - 2);

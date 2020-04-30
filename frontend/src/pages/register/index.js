@@ -27,7 +27,7 @@ const Register = () => {
         try {
             await api.post('ong', data);
 
-            alert('Cadastro efetuado com sucesso.');
+            alert('Cadastro efetuado com sucesso. Verifique o seu email para confirmação');
 
             history.push('/')
 

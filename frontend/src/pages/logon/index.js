@@ -5,8 +5,8 @@ import { FiLogIn } from 'react-icons/fi';
 import api from '../../services/api';
 
 import './styles.css';
-import logoImg from '../../assets/logo.svg'
-import heroesImg from '../../assets/heroes.png'
+import logoImg from '../../assets/logo.svg';
+import heroesImg from '../../assets/heroes.png';
 
 const Logon = props => {
     const [email, setEmail] = useState('');
@@ -22,13 +22,16 @@ const Logon = props => {
             localStorage.setItem('ongName', res.data.name);
 
             history.push('/profile');
-            
-        } catch (err) {
-            alert('Email ou senha não encontrados, verifique os dados e tente novamente')
+
+        }catch (err) {
+            if (err.response.status === 403) {
+                alert('Usuário ainda não verificado, acesse o seu email')
+                //alert(err.response.data) para retornar a mensagem de erro do backend
+            }
+            else alert('Email ou senha não encontrados, verifique os dados e tente novamente.')
         }
-
     }
-
+            
     return (
         <div className="logon-container">
             <section className="form">
