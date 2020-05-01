@@ -16,8 +16,8 @@ module.exports = {
             now.setHours(now.getHours() - 2);
             
             await connection('ong').where('id', id).update({
-                passwordResetToken: token,
-                passwordResetExpiration: now 
+                token: token,
+                tokenExpiration: now 
             });
 
             mailer.sendMail({

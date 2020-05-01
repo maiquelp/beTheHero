@@ -12,8 +12,8 @@ module.exports = async function verifyMail(id, email) {
     try {
 
         await connection('ong').where('id', id).update({
-            passwordResetToken: token,
-            passwordResetExpiration: now 
+            token: token,
+            tokenExpiration: now 
         });
 
         mailer.sendMail({
@@ -23,13 +23,11 @@ module.exports = async function verifyMail(id, email) {
             context: {token, id}
         }, (err) => {
             if (err) 
-                return res.status(400).json({error: 'Error sending verification email'});
-
-            return res.status(204).send();
+                return console.log('Error sending verification email');
 
         })
     } catch (err) {
-        return res.status(400).send({ error: 'Registration failed'})
+        return console.log('Registration failed')
     }
 }
 
