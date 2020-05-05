@@ -12,14 +12,14 @@ module.exports = {
                 andWhere('tokenExpiration', '>', now).
                 select('id', 'tokenExpiration').first();
 
-            if (!user) return res.status(400).json({ error: 'Verification failed, try to login and require a new verification mail'})
+            if (!user) return res.status(400).send('Verification failed, try to login and require a new verification mail')
 
             await connection('ong').where('id', id).update('verified', 1);
 
             return res.status(204).send();
             
         } catch (err) {
-            res.status(400).json({ error: 'Connection failed, try again'})
+            res.status(400).send('Connection failed, try again')
         }
     }
 }

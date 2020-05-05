@@ -12,7 +12,7 @@ module.exports = {
 
         try {
             if ((!user) || (!await bcrypt.compare(password, user.password))) {
-                return res.status(401).json({ error: 'Verify user and password'})
+                return res.status(401).send('Verify user and password')
             }
             if (user.verified === 0) {
                 verifyMail(user.id, email);
@@ -21,7 +21,7 @@ module.exports = {
             return res.json({name: user.name, token: generateToken({id: user.id})})
 
         } catch (err) {
-            return res.status(400).json({ error: 'connection failed'})
+            return res.status(400).send('connection failed')
         }
     }
 }    

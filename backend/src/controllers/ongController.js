@@ -26,7 +26,7 @@ module.exports = {
         
         try {
             if (hasEmail) {
-                return res.status(400).send({ error: 'email already exists'})
+                return res.status(400).send('email already exists')
 
             }
             await connection('ong').insert({
@@ -38,7 +38,7 @@ module.exports = {
             return res.status(204).send();
 
         } catch (err) {
-            return res.status(400).send({ error: 'Registration failed'})
+            return res.status(400).send('Registration failed')
         }
     }
 }

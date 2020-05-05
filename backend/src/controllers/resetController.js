@@ -22,7 +22,7 @@ module.exports = {
             return res.status(204).send();
             
         } catch (err) {
-            res.status(400).json({ error: 'Connection failed, try again'})
+            res.status(400).send('Connection failed, try again')
         }
     }
 }

@@ -27,13 +27,13 @@ module.exports = {
                 context: {token, id}
             }, (err) => {
                 if (err) 
-                    return res.status(400).json({error: 'Error sending recover email'});
+                    return res.status(400).send('Error sending recover email');
 
                 return res.status(204).send();
 
             });
         } catch(err){
-            res.status(400).json({ error: 'Unregistered email or connection failed, try again'})
+            res.status(400).send('Unregistered email or connection failed, try again')
         }
     }
 }    

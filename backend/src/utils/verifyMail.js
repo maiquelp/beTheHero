@@ -13,7 +13,7 @@ module.exports = async function verifyMail(id, email) {
 
         await connection('ong').where('id', id).update({
             token: token,
-            tokenExpiration: now 
+            tokenExpiration: now
         });
 
         mailer.sendMail({
