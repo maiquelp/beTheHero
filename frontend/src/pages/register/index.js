@@ -37,6 +37,24 @@ const Register = () => {
         }
     }
 
+    function applyWhatsappMask(e) {  
+        if (e.length === 1 && e !== '(') return setWhatsapp( '(' + e );//adiciona o '(' e evita adicionar novamente caso já exista
+        if (e.length === 3) return setWhatsapp( e + ') ' );
+        if (e.length === 4) return setWhatsapp( e.substring(0,(e.length - 2)));//apaga o ') '
+        if (e.length === 10) return setWhatsapp( e + ' - ' );
+        if (e.length === 12) return setWhatsapp( e.substring(0,(e.length - 3)));//apaga o ' - '
+       
+        return setWhatsapp( e )
+    }
+
+    function verifyWhatsappFormat(e) {
+        // eslint-disable-next-line
+        const exp = /\(\d{2}\)\ \d{5}\ - \d{4}/;
+        if(!exp.test(e)){
+            alert('Numero do Whatsapp invalido!')
+        }
+    }
+
     return (
         <div className="register-container">
             <div className="content">
@@ -57,11 +75,13 @@ const Register = () => {
                     <input type="password" placeholder="Senha" value={password} 
                         onChange={ e => setPassword( e.target.value ) } />
                     <input placeholder="Whatsapp(DDD+Numero)" value={whatsapp} 
-                        onChange={ e => setWhatsapp( e.target.value ) } />
+                        onChange={ e => applyWhatsappMask( e.target.value )}
+                        onBlur={ e => verifyWhatsappFormat( e.target.value )}
+                        maxLength="17" />
                     <div className="input-group">
                         <input placeholder="Cidade" value={city} 
                             onChange={ e => setCity( e.target.value ) } />
-                        <input placeholder="UF" style={{ width: 80 }} value={uf} 
+                        <input placeholder="UF" style={{ width: 80 }} value={uf} maxLength="2"
                             onChange={ e => setUf( e.target.value ) } />
                     </div>
                     <button className="button" type="submit">Cadastrar</button>
