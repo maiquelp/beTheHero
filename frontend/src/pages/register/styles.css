@@ -42,14 +42,18 @@
     max-width: 450px;
 }
 
-.register-container .content form input {
+.register-container .content form .input-group-personal input {
     margin-top: 8px;
+
 }
 
-.register-container .content form .input-group {
+.register-container .content form .input-group-address {
     display: flex;
+    margin-top: 8px;
+
 }
 
-.register-container .content form .input-group input + input {
+.register-container .content form .input-group-address input + select {
     margin-left: 8px;
 }
+

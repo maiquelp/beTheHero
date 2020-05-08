@@ -68,21 +68,38 @@ const Register = () => {
                     </Link>
                 </section>
                 <form onSubmit={handleRegister}>
-                    <input placeholder="Nome da ONG" value={name} 
-                        onChange={ e => setName( e.target.value )} />
-                    <input type="email" placeholder="E-mail" value={email} 
-                        onChange={ e => setEmail( e.target.value ) } />
-                    <input type="password" placeholder="Senha" value={password} 
-                        onChange={ e => setPassword( e.target.value ) } />
-                    <input placeholder="Whatsapp(DDD+Numero)" value={whatsapp} 
-                        onChange={ e => applyWhatsappMask( e.target.value )}
-                        onBlur={ e => verifyWhatsappFormat( e.target.value )}
-                        maxLength="17" />
-                    <div className="input-group">
+                    <div className="input-group-personal">
+                        <input placeholder="Nome da ONG" value={name} 
+                            onChange={ e => setName( e.target.value )} />
+                        <input type="email" placeholder="E-mail" value={email} 
+                            onChange={ e => setEmail( e.target.value ) } />
+                        <input type="password" placeholder="Senha" value={password} 
+                            onChange={ e => setPassword( e.target.value ) } />
+                        <input placeholder="Whatsapp(DDD+Numero)" value={whatsapp} 
+                            onChange={ e => applyWhatsappMask( e.target.value )}
+                            onBlur={ e => verifyWhatsappFormat( e.target.value )}
+                            maxLength="17" />
+                    </div>
+                    <div className="input-group-address">
                         <input placeholder="Cidade" value={city} 
                             onChange={ e => setCity( e.target.value ) } />
-                        <input placeholder="UF" style={{ width: 80 }} value={uf} maxLength="2"
-                            onChange={ e => setUf( e.target.value ) } />
+                        <select placeholder="UF" style={{ width: 100 }} value={uf} maxLength="2"
+                            onChange={ e => setUf( e.target.value ) } required>
+                            <option value="" disabled hidden>UF</option><option value="AC">AC</option>
+                            <option value="AL">AL</option><option value="AP">AP</option>
+                            <option value="AM">AM</option><option value="BA">BA</option>
+                            <option value="CE">CE</option><option value="DF">DF</option>
+                            <option value="ES">ES</option><option value="GO">GO</option>
+                            <option value="MA">MA</option><option value="MT">MT</option>
+                            <option value="MS">MS</option><option value="MG">MG</option>
+                            <option value="PA">PA</option><option value="PB">PB</option>
+                            <option value="PR">PR</option><option value="PE">PE</option>
+                            <option value="PI">PI</option><option value="RJ">RJ</option>
+                            <option value="RN">RN</option><option value="RS">RS</option>
+                            <option value="RO">RO</option><option value="RR">RR</option>
+                            <option value="SC">SC</option><option value="SP">SP</option>
+                            <option value="SE">SE</option><option value="TO">TO</option>
+                        </select>    
                     </div>
                     <button className="button" type="submit">Cadastrar</button>
                 </form>
