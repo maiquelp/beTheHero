@@ -43,16 +43,18 @@ const NewIncident = () => {
             <section>
                 <img src={logoImg} alt="logo"/>
                 <h1>Cadastrar novo caso</h1>
-                <p>Descreva o caso detalhadamente para encontrar um herói disposto a ajudar.</p>
+                <p>Descreva o caso detalhadamente para encontrar um herói disposto a ajudar.{value}</p>
                 <Link className="back-link" to="/profile">
                     <FiArrowLeft size={16} color="#E02041" />
                     Voltar para Cadastro
                 </Link>
             </section>
             <form onSubmit={handleNewIncident}> 
-                <input value={title} onChange={ e => setTitle(e.target.value)} placeholder="Título do caso" />
-                <textarea value={description} onChange={ e => setDescription(e.target.value)} placeholder="Descrição" />
-                <input value={value} onChange={ e => setValue(e.target.value)} placeholder="Valor" />
+                <input value={title} onChange={ e => setTitle(e.target.value)} placeholder="Título do caso" required />
+                <textarea value={description} onChange={ e => setDescription(e.target.value)} placeholder="Descrição" 
+                    required />
+                <input value={value} type="number" min="0.01" step="0.01" onChange={ e => setValue(e.target.value)} 
+                    placeholder="Valor" required />
                 <button className="button" type="submit">Cadastrar</button>
             </form>
         </div>
