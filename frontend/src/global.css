@@ -81,7 +81,6 @@ h1{
     text-decoration: none;
     font-weight: 600;
     transition: opacity 0.2s;
-
 }
 
 .back-link:hover {
@@ -90,4 +89,8 @@ h1{
 
 .back-link sgv {
     margin-right: 8px;
+}
+
+input:focus, select:focus, textarea:focus {
+    border: 1px solid #338FFF;
 }

@@ -28,7 +28,7 @@ routes.post('/ong', celebrate({
         name: Joi.string().required(),
         email: Joi.string().required().email(),
         password: Joi.string().required(),
-        whatsapp: Joi.string().required().min(10).max(11),
+        whatsapp: Joi.string().required().min(11).max(17),
         city: Joi.string().required(),
         uf: Joi.string().required().length(2)
     })
