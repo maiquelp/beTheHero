@@ -3,6 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
 import api from '../../services/api';
 import apiIbge from '../../services/apiIbge';
+import { mask, unMask } from 'remask'; //https://github.com/brunobertolini/remask
 
 import './styles.css';
 import logoImg from '../../assets/logo.svg'
@@ -22,10 +23,10 @@ const Register = () => {
 
     const handleRegister = async e => {
         e.preventDefault();
-
+    
         const data = { name, email, password, whatsapp, city, uf }
-
-        data.whatsapp =  whatsapp.match(/\d+/g).join('');//retira a máscara
+        
+        data.whatsapp = unMask(whatsapp);
 
         try {
             await api.post('ong', data);
@@ -41,22 +42,9 @@ const Register = () => {
     }
 
     function applyWhatsappMask(e) {  
-        if (e.length === 1 && e !== '(') return setWhatsapp( '(' + e );//adiciona o '(' e evita adicionar novamente caso já exista
-        if (e.length === 3) return setWhatsapp( e + ') ' );
-        if (e.length === 4) return setWhatsapp( e.substring(0,(e.length - 2)));//apaga o ') '
-        if (e.length === 10) return setWhatsapp( e + ' - ' );
-        if (e.length === 12) return setWhatsapp( e.substring(0,(e.length - 3)));//apaga o ' - '
-       
-        return setWhatsapp( e )
+        const masked = mask( e, '(99) 99999 - 9999');
+        return setWhatsapp( masked )
     }
-
-    // function verifyWhatsappFormat(e) {
-    //     // eslint-disable-next-line
-    //     const exp = /\(\d{2}\)\ \d{5}\ - \d{4}/;
-    //     if(!exp.test(e)){
-    //         alert('Numero do Whatsapp invalido!')
-    //     }
-    // }
   
     const getCityList = async (uf) => {     
         setUf(uf);

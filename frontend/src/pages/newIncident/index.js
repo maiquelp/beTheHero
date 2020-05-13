@@ -5,7 +5,6 @@ import { FiArrowLeft } from 'react-icons/fi';
 import './styles.css';
 import logoImg from '../../assets/logo.svg'
 
-import './styles.css'
 import api from '../../services/api';
 
 const NewIncident = () => {
