@@ -6,11 +6,7 @@ import api from '../../services/api';
 
 import logoImg from '../../assets/logo.svg';
 import heroesImg from '../../assets/heroes.png';
-import { LogonContainer, 
-    LogonContainerSection, 
-    LogonContainerSectionForm, 
-    LogonContainerSectionFormInput, 
-    LogonContainerSectionFormH1 } from './styles'; //styled-components
+import { Container, Section, Form, Input, H1 } from './styles'; //styled-components
 
 const Logon = props => {
     const [email, setEmail] = useState('');
@@ -37,13 +33,13 @@ const Logon = props => {
     }
             
     return (
-        <LogonContainer>
-            <LogonContainerSection>
+        <Container>
+            <Section>
                 <img src={logoImg} alt="logo" />
-                <LogonContainerSectionForm onSubmit={handleLogin}>
-                    <LogonContainerSectionFormH1>Faça seu logon</LogonContainerSectionFormH1>
-                    <LogonContainerSectionFormInput type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
-                    <LogonContainerSectionFormInput type="password" placeholder="Senha" value={password} 
+                <Form onSubmit={handleLogin}>
+                    <H1>Faça seu logon</H1>
+                    <Input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
+                    <Input type="password" placeholder="Senha" value={password} 
                         onChange={e => setPassword(e.target.value)} />
                     <button className="button" type="submit">Entrar</button>
                     
@@ -56,10 +52,10 @@ const Logon = props => {
                         Esqueci a senha
                     </Link>
                     
-                </LogonContainerSectionForm>
-            </LogonContainerSection>
+                </Form>
+            </Section>
             <img src={heroesImg} alt="heroes" />
-        </LogonContainer>
+        </Container>
     )
 }
 

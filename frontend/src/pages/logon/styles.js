@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const LogonContainer = styled.div`
+export const Container = styled.div`
     width: 100%;
     max-width: 1120px;
     height: 100vh;
@@ -10,22 +10,22 @@ export const LogonContainer = styled.div`
     justify-content: space-between;
 `;
 
-export const LogonContainerSection = styled.section`
+export const Section = styled.section`
     width: 100%;
     max-width: 350px;
     margin-right: 30px;
 `;
 
-export const LogonContainerSectionForm = styled.form`
+export const Form = styled.form`
     margin-top: 10%;
 `;
 
 
-export const LogonContainerSectionFormInput = styled.input`
+export const Input = styled.input`
     margin-top: 8px;
 `;
 
-export const LogonContainerSectionFormH1 = styled.h1`
+export const H1 = styled.h1`
     font-size: 32px;
     margin-bottom: 32px;
     color: #41414d;
