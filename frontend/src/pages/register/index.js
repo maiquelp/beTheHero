@@ -5,7 +5,8 @@ import api from '../../services/api';
 import apiIbge from '../../services/apiIbge';
 import { mask, unMask } from 'remask'; //https://github.com/brunobertolini/remask
 
-import './styles.css';
+import { Container, Content, Section, H1, P } from '../../components/Container'; // component styled-components   
+import { Form, Personal, Input, Address} from './styles.js'; // page styled-components
 import logoImg from '../../assets/logo.svg'
 
 const Register = () => {
@@ -67,31 +68,31 @@ const Register = () => {
     
 
     return (
-        <div className="register-container">
-            <div className="content">
-                <section>
+        <Container>
+            <Content>
+                <Section>
                     <img src={logoImg} alt="logo"/>
-                    <h1>Cadastro</h1>
-                    <p>Faça seu cadastro, entre na plataforma e ajude pessoas a encontrarem os casos da sua ONG.</p>
+                    <H1>Cadastro</H1>
+                    <P>Faça seu cadastro, entre na plataforma e ajude pessoas a encontrarem os casos da sua ONG.</P>
                     <Link className="back-link" to="/">
                         <FiArrowLeft size={16} color="#E02041" />
                         Home
                     </Link>
-                </section>
-                <form onSubmit={handleRegister}>
-                    <div className="input-group-personal">
-                        <input placeholder="Nome da ONG" value={name} 
+                </Section>
+                <Form onSubmit={handleRegister}>
+                    <Personal>
+                        <Input placeholder="Nome da ONG" value={name} 
                             onChange={ e => setName( e.target.value )} required />
-                        <input type="email" placeholder="E-mail" value={email} 
+                        <Input type="email" placeholder="E-mail" value={email} 
                             onChange={ e => setEmail( e.target.value ) } required />
-                        <input type="password" placeholder="Senha" value={password} 
+                        <Input type="password" placeholder="Senha" value={password} 
                             onChange={ e => setPassword( e.target.value ) } required />
-                        <input placeholder="Whatsapp(DDD+Numero)" value={whatsapp} 
+                        <Input placeholder="Whatsapp(DDD+Numero)" value={whatsapp} 
                             onChange={ e => applyWhatsappMask( e.target.value )}
                             // onBlur={ e => verifyWhatsappFormat( e.target.value )}
                             maxLength="17" required  />
-                    </div>
-                    <div className="input-group-address">
+                    </Personal>
+                    <Address>
                         <select style={{ width: 100 }} value={uf} maxLength="2"
                             onChange={ e => getCityList( e.target.value ) } required >
                             <option value="" disabled hidden>UF</option>
@@ -102,11 +103,11 @@ const Register = () => {
                             <option value="" disabled hidden>Cidade</option>
                             {cityList.map(e => (<option key={e.id} value={e.nome}>{e.nome}</option>))}
                         </select>    
-                    </div>
+                    </Address>
                     <button className="button" type="submit">Cadastrar</button>
-                </form>
-            </div>
-        </div>
+                </Form>
+            </Content>
+        </Container>
     )
 }
 

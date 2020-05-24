@@ -1,3 +1,5 @@
+/* Deprecated by styled-components  */
+
 .recover-container {
     width: 100%;
     max-width: 1120px;
@@ -42,8 +44,7 @@
     max-width: 450px;
 }
 
-.recover-container .content form input,
-.recover-container .content form textarea {
+.recover-container .content form input {
     margin-top: 8px;
 }
 

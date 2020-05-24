@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
 
-import './styles.css';
+import { Container, Content, Section, H1, P, Form, Input } from '../../components/Container';// component styled-components
 import logoImg from '../../assets/logo.svg'
 
 import api from '../../services/api';
@@ -31,23 +31,23 @@ const Reset = () => {
     }
 
     return (
-        <div className="reset-container">
-        <div className="content">
-            <section>
-                <img src={logoImg} alt="logo"/>
-                <h1>Recadastramento de Senha</h1>
-                <p>Informe a nova senha de acesso</p>
-                <Link className="back-link" to="/">
-                    <FiArrowLeft size={16} color="#E02041" />
-                    Home
-                </Link>
-            </section>
-            <form onSubmit={handleReset}> 
-                <input value={password} type="password" onChange={ e => setPassword(e.target.value)} placeholder="Nova Senha" />
-                <button className="button" type="submit">Enviar</button>
-            </form>
-        </div>
-        </div>
+        <Container>
+            <Content>
+                <Section>
+                    <img src={logoImg} alt="logo"/>
+                    <H1>Recadastramento de Senha</H1>
+                    <P>Informe a nova senha de acesso</P>
+                    <Link className="back-link" to="/">
+                        <FiArrowLeft size={16} color="#E02041" />
+                        Home
+                    </Link>
+                </Section>
+                <Form onSubmit={handleReset}> 
+                    <Input value={password} type="password" onChange={ e => setPassword(e.target.value)} placeholder="Nova Senha" />
+                    <button className="button" type="submit">Enviar</button>
+                </Form>
+            </Content>
+        </Container>
     )
 }
 

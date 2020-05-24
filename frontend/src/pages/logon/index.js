@@ -4,9 +4,13 @@ import { FiLogIn } from 'react-icons/fi';
 
 import api from '../../services/api';
 
-import './styles.css';
 import logoImg from '../../assets/logo.svg';
 import heroesImg from '../../assets/heroes.png';
+import { LogonContainer, 
+    LogonContainerSection, 
+    LogonContainerSectionForm, 
+    LogonContainerSectionFormInput, 
+    LogonContainerSectionFormH1 } from './styles'; //styled-components
 
 const Logon = props => {
     const [email, setEmail] = useState('');
@@ -33,13 +37,13 @@ const Logon = props => {
     }
             
     return (
-        <div className="logon-container">
-            <section className="form">
+        <LogonContainer>
+            <LogonContainerSection>
                 <img src={logoImg} alt="logo" />
-                <form onSubmit={handleLogin}>
-                    <h1>Faça seu logon</h1>
-                    <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
-                    <input type="password" placeholder="Senha" value={password} 
+                <LogonContainerSectionForm onSubmit={handleLogin}>
+                    <LogonContainerSectionFormH1>Faça seu logon</LogonContainerSectionFormH1>
+                    <LogonContainerSectionFormInput type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
+                    <LogonContainerSectionFormInput type="password" placeholder="Senha" value={password} 
                         onChange={e => setPassword(e.target.value)} />
                     <button className="button" type="submit">Entrar</button>
                     
@@ -52,10 +56,10 @@ const Logon = props => {
                         Esqueci a senha
                     </Link>
                     
-                </form>
-            </section>
+                </LogonContainerSectionForm>
+            </LogonContainerSection>
             <img src={heroesImg} alt="heroes" />
-        </div>
+        </LogonContainer>
     )
 }
 

@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
 
-import './styles.css';
+import { Container, Content, Section, H1, P } from '../../components/Container'; // component styled-components   
+import { Form, Input, TextArea } from './styles.js'; // page styled-components
 import logoImg from '../../assets/logo.svg'
 
 import api from '../../services/api';
@@ -37,27 +38,27 @@ const NewIncident = () => {
     }
 
     return (
-        <div className="newIncident-container">
-        <div className="content">
-            <section>
-                <img src={logoImg} alt="logo"/>
-                <h1>Cadastrar novo caso</h1>
-                <p>Descreva o caso detalhadamente para encontrar um herói disposto a ajudar.{value}</p>
-                <Link className="back-link" to="/profile">
-                    <FiArrowLeft size={16} color="#E02041" />
-                    Voltar para Cadastro
-                </Link>
-            </section>
-            <form onSubmit={handleNewIncident}> 
-                <input value={title} onChange={ e => setTitle(e.target.value)} placeholder="Título do caso" required />
-                <textarea value={description} onChange={ e => setDescription(e.target.value)} placeholder="Descrição" 
-                    required />
-                <input value={value} type="number" min="0.01" step="0.01" onChange={ e => setValue(e.target.value)} 
-                    placeholder="Valor" required />
-                <button className="button" type="submit">Cadastrar</button>
-            </form>
-        </div>
-        </div>
+        <Container>
+            <Content>
+                <Section>
+                    <img src={logoImg} alt="logo"/>
+                    <H1>Cadastrar novo caso</H1>
+                    <P>Descreva o caso detalhadamente para encontrar um herói disposto a ajudar.</P>
+                    <Link className="back-link" to="/profile">
+                        <FiArrowLeft size={16} color="#E02041" />
+                        Voltar para Cadastro
+                    </Link>
+                </Section>
+                <Form onSubmit={handleNewIncident}> 
+                    <Input value={title} onChange={ e => setTitle(e.target.value)} placeholder="Título do caso" required />
+                    <TextArea value={description} onChange={ e => setDescription(e.target.value)} placeholder="Descrição" 
+                        required />
+                    <Input value={value} type="number" min="0.01" step="0.01" onChange={ e => setValue(e.target.value)} 
+                        placeholder="Valor" required />
+                    <button className="button" type="submit">Cadastrar</button>
+                </Form>
+            </Content>
+        </Container>
     )
 }
 

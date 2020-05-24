@@ -13,7 +13,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "remask": "0.1.0-alpha.5",
-    "vanilla-masker": "^1.2.0"
+    "styled-components": "^5.1.0"
   },
   "scripts": {
     "start": "react-scripts start",

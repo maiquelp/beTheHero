@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { FiPower, FiTrash2 } from 'react-icons/fi';
 
 import api from '../../services/api';
 
 import logoImg from '../../assets/logo.svg';
-import './styles.css';
+import { Container, Header, Span, Img, StyledLink, Button, H1, Ul, Li, LiButton, Strong, P } from './styles.js';
 
 const Profile = () => {
     const [incidents, setIncidents] = useState([]);
@@ -46,35 +46,35 @@ const Profile = () => {
     }
 
     return (
-        <div className="profile-container">
-            <header>
-                <img src={logoImg} alt="logo" />
-                <span>Olá, {ongName}</span>
+        <Container>
+            <Header>
+                <Img src={logoImg} alt="logo" />
+                <Span>Olá, {ongName}</Span>
 
-                <Link className="button" to="/incidents/new">Cadastrar novo caso</Link>
-                <button type="button">
+                <StyledLink className="button" to="/incidents/new">Cadastrar novo caso</StyledLink>
+                <Button>
                     <FiPower size={18} color="#e02041" onClick={handleLogout} />
-                </button>
-            </header>
+                </Button>
+            </Header>
 
-            <h1>Casos cadastrados</h1>
-            <ul>
+            <H1>Casos cadastrados</H1>
+            <Ul>
                 {incidents.map( incident => (
-                    <li key={incident.id}>
-                        <strong>Caso:</strong>
-                        <p>{incident.title}</p>
-                        <strong>Desc.</strong>
-                        <p>{incident.description}</p>
-                        <strong>Valor:</strong>
-                        <p>{Intl.NumberFormat('pt-BR', { 
-                            style: 'currency', currency: 'BRL'}).format(incident.value)}</p>
-                        <button type="button" onClick={() => handleDeleteIncident(incident.id)}>
+                    <Li key={incident.id}>
+                        <Strong>Caso:</Strong>
+                        <P>{incident.title}</P>
+                        <Strong>Desc.</Strong>
+                        <P>{incident.description}</P>
+                        <Strong>Valor:</Strong>
+                        <P>{Intl.NumberFormat('pt-BR', { 
+                            style: 'currency', currency: 'BRL'}).format(incident.value)}</P>
+                        <LiButton type="button" onClick={() => handleDeleteIncident(incident.id)}>
                             <FiTrash2 size={20} color="#a8a8b3" />
-                        </button>
-                    </li>    
+                        </LiButton>
+                    </Li>    
                 ))}
-            </ul>
-        </div>
+            </Ul>
+        </Container>
     )
 }
 
