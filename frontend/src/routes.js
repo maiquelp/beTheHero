@@ -8,10 +8,12 @@ import Reset from './pages/reset';
 import Verify from './pages/verify';
 import Profile from './pages/profile';
 import NewIncident from './pages/newIncident';
+import { GlobalStyle } from './components/GlobalStyle'; // global styled-component
 
 const Routes = () => {
     return (
         <BrowserRouter>
+            <GlobalStyle />
             <Switch>
                 <Route path="/" exact component={Logon} />
                 <Route path="/register" component={Register} />

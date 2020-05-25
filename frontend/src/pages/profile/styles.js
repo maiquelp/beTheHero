@@ -23,9 +23,11 @@ export const Img = styled.img`
 `;
 
 export const StyledLink = styled(Link)`
-    width: 260px;
-    margin-left: auto;
-    margin-top: 0;
+    &.button {
+        width: 260px;
+        margin-left: auto;
+        margin-top: 0;
+    }
 `;
 
 export const Button = styled.button`
@@ -76,10 +78,6 @@ export const Strong = styled.strong`
     margin-bottom: 16px;
     color: #41414d;
 `;
-
-// .profile-container ul li p + strong {
-//     margin-top: 32px;
-// }
 
 export const P = styled.p`
     color: #737380;

@@ -50,10 +50,9 @@ const Profile = () => {
             <Header>
                 <Img src={logoImg} alt="logo" />
                 <Span>Olá, {ongName}</Span>
-
                 <StyledLink className="button" to="/incidents/new">Cadastrar novo caso</StyledLink>
-                <Button>
-                    <FiPower size={18} color="#e02041" onClick={handleLogout} />
+                <Button onClick={handleLogout} >
+                    <FiPower size={18} color="#e02041" />
                 </Button>
             </Header>
 
