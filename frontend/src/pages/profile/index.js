@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { FiPower, FiTrash2 } from 'react-icons/fi';
+import { FiPower, FiTrash2, FiX } from 'react-icons/fi';
+import ReactDOM from 'react-dom';
 
 import api from '../../services/api';
 
 import logoImg from '../../assets/logo.svg';
-import { Container, Header, Span, Img, StyledLink, Button, H1, Ul, Li, LiButton, Strong, P } from './styles.js';
+import { Container, Header, Span, Img, StyledLink, Button, H1, Ul, Li, Trash, Delete, Strong, P } from './styles.js';
 
 const Profile = () => {
     const [incidents, setIncidents] = useState([]);
@@ -40,6 +41,15 @@ const Profile = () => {
         }
     }
 
+    const handleConfirmDelete = (id) => {
+            ReactDOM.render(
+                <Delete type="button" onClick={() => handleDeleteIncident(id)}>
+                    <FiTrash2 size={18} color="#CA1D3A" />
+                </Delete>,
+                document.getElementById(id)
+          );
+    }
+
     const handleLogout = () => {
         localStorage.clear();
         history.push('/')
@@ -67,9 +77,10 @@ const Profile = () => {
                         <Strong>Valor:</Strong>
                         <P>{Intl.NumberFormat('pt-BR', { 
                             style: 'currency', currency: 'BRL'}).format(incident.value)}</P>
-                        <LiButton type="button" onClick={() => handleDeleteIncident(incident.id)}>
-                            <FiTrash2 size={20} color="#a8a8b3" />
-                        </LiButton>
+                        <Trash type="button" onClick={() => handleConfirmDelete(incident.id)}>
+                            <FiX size={20} color="#a8a8b3" />
+                        </Trash>
+                        <div id={incident.id}></div>
                     </Li>    
                 ))}
             </Ul>

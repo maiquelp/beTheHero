@@ -62,7 +62,7 @@ export const Li = styled.li`
     position: relative;
 `;
 
-export const LiButton = styled.button`
+export const Trash = styled.button`
     background: #fff;
     position: absolute;
     right: 24px;
@@ -71,6 +71,14 @@ export const LiButton = styled.button`
     :hover {
         opacity: 0.8;
     }
+`;
+
+export const Delete = styled.button`
+    background: #fff;
+    position: absolute;
+    right: 50px;
+    top: 24px;
+    border: 0;
 `;
 
 export const Strong = styled.strong`
