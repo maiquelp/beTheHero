@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { FiArrowLeft } from 'react-icons/fi';
 import api from '../../services/api';
 import apiIbge from '../../services/apiIbge';
 import { mask, unMask } from 'remask'; //https://github.com/brunobertolini/remask
 
-import { Container, Content, Section, H1, P } from '../../components/Container'; // component styled-components   
+import { Container, Content, Section, H1, P, ArrowLeftButton } from '../../components/Container'; // component styled-components   
 import { Form, Personal, Input, Address} from './styles.js'; // page styled-components
 import logoImg from '../../assets/logo.svg'
 
@@ -75,7 +74,7 @@ const Register = () => {
                     <H1>Cadastro</H1>
                     <P>Faça seu cadastro, entre na plataforma e ajude pessoas a encontrarem os casos da sua ONG.</P>
                     <Link className="back-link" to="/">
-                        <FiArrowLeft size={16} color="#E02041" />
+                        <ArrowLeftButton size={16} color="#E02041" />
                         Home
                     </Link>
                 </Section>

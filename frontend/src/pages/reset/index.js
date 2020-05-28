@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { FiArrowLeft } from 'react-icons/fi';
 
-import { Container, Content, Section, H1, P, Form, Input } from '../../components/Container';// component styled-components
+import { Container, Content, Section, H1, P, Form, Input, ArrowLeftButton } from '../../components/Container';// component styled-components
 import logoImg from '../../assets/logo.svg'
 
 import api from '../../services/api';
@@ -38,7 +37,7 @@ const Reset = () => {
                     <H1>Recadastramento de Senha</H1>
                     <P>Informe a nova senha de acesso</P>
                     <Link className="back-link" to="/">
-                        <FiArrowLeft size={16} color="#E02041" />
+                        <ArrowLeftButton size={16} color="#E02041" />
                         Home
                     </Link>
                 </Section>

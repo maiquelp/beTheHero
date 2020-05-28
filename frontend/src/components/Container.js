@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { ArrowLeft } from '@styled-icons/feather';
 
 export const Container = styled.div`
     width: 100%;
@@ -45,3 +46,9 @@ export const Input  = styled.input`
     margin-top: 8px;
 `;
 
+export const ArrowLeftButton = styled(ArrowLeft)`
+    width: 20px;
+    height: 20px;
+    color: #e02041;
+    stroke-width: 3;
+`;

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { Power, X, Trash2 } from '@styled-icons/feather'
 
 export const Container = styled.div`
     width: 100%;
@@ -28,6 +29,27 @@ export const StyledLink = styled(Link)`
         margin-left: auto;
         margin-top: 0;
     }
+`;
+
+export const PowerButton = styled(Power)`
+    width: 20px;
+    height: 20px;
+    color: #e02041;
+    stroke-width: 3;
+`;
+
+export const XButton = styled(X)`
+    width: 20px;
+    height: 20px;
+    color: #a8a8b3;
+    stroke-width: 3;
+`;
+
+export const Trash2Button = styled(Trash2)`
+    width: 20px;
+    height: 20px;
+    color: #e02041;
+    stroke-width: 2;
 `;
 
 export const Button = styled.button`

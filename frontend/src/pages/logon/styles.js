@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { LogIn } from '@styled-icons/feather'
+
 
 export const Container = styled.div`
     width: 100%;
@@ -20,6 +22,12 @@ export const Form = styled.form`
     margin-top: 10%;
 `;
 
+export const LoginButton = styled(LogIn)`
+    width: 20px;
+    height: 20px;
+    color: #e02041;
+    stroke-width: 3;
+`;
 
 export const Input = styled.input`
     margin-top: 8px;

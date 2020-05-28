@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { FiArrowLeft } from 'react-icons/fi';
 
-import { Container, Content, Section, H1, P } from '../../components/Container'; // component styled-components   
+import { Container, Content, Section, H1, P, ArrowLeftButton } from '../../components/Container'; // component styled-components   
 import { Form, Input, TextArea } from './styles.js'; // page styled-components
 import logoImg from '../../assets/logo.svg'
 
@@ -45,7 +44,7 @@ const NewIncident = () => {
                     <H1>Cadastrar novo caso</H1>
                     <P>Descreva o caso detalhadamente para encontrar um herói disposto a ajudar.</P>
                     <Link className="back-link" to="/profile">
-                        <FiArrowLeft size={16} color="#E02041" />
+                        <ArrowLeftButton />
                         Voltar para Cadastro
                     </Link>
                 </Section>

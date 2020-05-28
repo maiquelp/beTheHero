@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { FiLogIn } from 'react-icons/fi';
 
 import api from '../../services/api';
 
 import logoImg from '../../assets/logo.svg';
 import heroesImg from '../../assets/heroes.png';
-import { Container, Section, Form, Input, H1 } from './styles'; //styled-components
+import { Container, Section, Form, Input, H1, LoginButton } from './styles'; //styled-components
 
 const Logon = props => {
     const [email, setEmail] = useState('');
@@ -44,11 +43,11 @@ const Logon = props => {
                     <button className="button" type="submit">Entrar</button>
                     
                     <Link className="back-link" to="/register">
-                        <FiLogIn size={16} color="#E02041" />
+                        <LoginButton />
                         Não tenho cadastro
                     </Link>
                     <Link className="back-link" to="/recover">
-                        <FiLogIn size={16} color="#E02041" />
+                        <LoginButton />
                         Esqueci a senha
                     </Link>
                     
