@@ -1,4 +1,7 @@
 {
+  "name": "bethehero_mobile",
+  "version": "1.0.0",
+  "author": "Maiquel & RocketSeat",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
