@@ -20,6 +20,7 @@
     "knex": "^0.20.15",
     "nodemailer": "^6.4.6",
     "nodemailer-express-handlebars": "^4.0.0",
+    "pg": "^8.2.1",
     "sqlite3": "^4.2.0"
   },
   "devDependencies": {
