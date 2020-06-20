@@ -20,12 +20,17 @@ module.exports = {
         const {title, description, value} = req.body;
 
         const ong_id = req.userId;
+
+        try{
+            const [id] = await connection('incident').insert({
+                title, description, value, ong_id 
+            });
+        
+            return res.json({ id })
+        } catch (err) {
+            return res.status(400).send('Registration failed')
+        }
     
-        const [id] = await connection('incident').insert({
-            title, description, value, ong_id 
-        });
-    
-        return res.json({ id })
     },
 
     async delete(req, res) {
