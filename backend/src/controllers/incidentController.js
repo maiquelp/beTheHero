@@ -26,7 +26,7 @@ module.exports = {
                 title, description, value, ong_id 
             });
         
-            return res.json({ id })
+            return res.status(204).send();
         } catch (err) {
             return res.status(400).send('Registration failed')
         }
