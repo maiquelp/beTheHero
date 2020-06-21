@@ -21,15 +21,15 @@ module.exports = {
 
         const ong_id = req.userId;
 
-        try{
+        try {
             const [id] = await connection('incident').insert({
                 title, description, value, ong_id 
             });
         
             return res.status(204).send();
         } catch (err) {
-            return res.status(400).send('Registration failed')
-        }
+            return res.status(400).send('Registration failed');
+        };
     
     },
 
