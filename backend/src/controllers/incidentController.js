@@ -22,11 +22,12 @@ module.exports = {
         const ong_id = req.userId;
 
         try {
-            const [id] = await connection('incident').insert({
+            //const [id] = await connection('incident').insert({
+            await connection('incident').insert({
                 title, description, value, ong_id 
             });
         
-            return res.sendStatus(204).send(id);
+            return res.sendStatus(204);
             //return res.status(204).send(id);
         } catch (err) {
             return res.status(400).send('Registration failed');
