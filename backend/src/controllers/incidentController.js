@@ -22,13 +22,13 @@ module.exports = {
         const ong_id = req.userId;
 
         try {
-            //const [id] = await connection('incident').insert({
+            //const [id] = await connection('incident').insert({ //heroku error fix try
             await connection('incident').insert({
                 title, description, value, ong_id 
             });
         
             return res.sendStatus(204);
-            //return res.status(204).send(id);
+            //return res.status(204).send(id); //heroku error fix try
         } catch (err) {
             return res.status(400).send('Registration failed');
         };
