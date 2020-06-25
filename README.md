@@ -52,16 +52,21 @@ As seguintes alterações foram feitas após a finalização do projeto da Rocke
 # Telas
 
 ## Frontend
-![Be The Hero](screenshots/main.png "Main")
-![Be The Hero](screenshots/ong.png "Ong")
-![Be The Hero](screenshots/incident.png "Incident")
-![Be The Hero](screenshots/profile.png "Profile")
+![Main](screenshots/main.png)
+![ONG](screenshots/ong.png)
+![Incident](screenshots/incident.png)
+![Profile](screenshots/profile.png)
 
 ## Mobile
+![Splash](screenshots/splash_mobile.png)
+![Incidents](screenshots/incidents_mobile.png)
+![Incident](screenshots/incident_mobile.png)
+![Whatsapp](screenshots/whatsapp_mobile.png)
+![Email](screenshots/email_mobile.png)
 
 ## Backend
-![Be The Hero](screenshots/ong_api.png "Ong")
-![Be The Hero](screenshots/incident_api.png "Incident")
+![Ong](screenshots/ong_api.png)
+![Incident](screenshots/incident_api.png)
 
 
 
