@@ -74,6 +74,10 @@ export const GlobalStyle = createGlobalStyle`
         filter: brightness(90%);
     }
 
+    .button:disabled {
+        opacity: 0.5;
+    }
+
     .back-link {
         display: flex;
         align-items: center;
@@ -95,6 +99,15 @@ export const GlobalStyle = createGlobalStyle`
 
     input:focus, select:focus, textarea:focus {
         border: 1px solid #338FFF;
+    }
+
+    @keyframes rotation {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(359deg);
+        }
     }
 
 `;

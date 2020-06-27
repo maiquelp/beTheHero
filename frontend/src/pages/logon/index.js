@@ -5,15 +5,21 @@ import api from '../../services/api';
 
 import logoImg from '../../assets/logo.svg';
 import heroesImg from '../../assets/heroes.png';
-import { Container, Section, Form, Input, H1, LoginButton } from './styles'; //styled-components
+import { Container, Section, Form, Input, H1, LoginButton, Spinner } from './styles'; //styled-components
 
 const Logon = props => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [loading, setLoading] = useState(false);
     const history = useHistory();
 
     const handleLogin = async e => {
         e.preventDefault();
+
+        setLoading(true);
+
+        setTimeout(async () => {
+          
 
         try {
             const res = await api.post('session', { email, password });
@@ -27,8 +33,13 @@ const Logon = props => {
                 alert('Usuário ainda não verificado, acesse o seu email')
                 //alert(err.response.data) para retornar a mensagem de erro do backend
             }
-            else alert('Email ou senha não encontrados, verifique os dados e tente novamente.')
+            else {
+                alert('Email ou senha não encontrados, verifique os dados e tente novamente.');
+                setLoading(false);
+            }
+
         }
+        }, 2000);
     }
             
     return (
@@ -40,7 +51,11 @@ const Logon = props => {
                     <Input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
                     <Input type="password" placeholder="Senha" value={password} 
                         onChange={e => setPassword(e.target.value)} />
-                    <button className="button" type="submit">Entrar</button>
+                    <button className="button" type="submit" disabled={loading}>
+                        {loading && <Spinner />}
+                        {loading && <span>Entrando</span>}
+                        {!loading && <span>Entrar</span>}
+                    </button>
                     
                     <Link className="back-link" to="/register">
                         <LoginButton />
