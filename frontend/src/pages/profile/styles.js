@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { Power, X, Trash2 } from '@styled-icons/feather'
+import { Power, X, Trash2, RefreshCw } from '@styled-icons/feather'
 
 export const Container = styled.div`
     width: 100%;
@@ -41,6 +41,13 @@ export const PowerButton = styled(Power)`
 export const XButton = styled(X)`
     width: 20px;
     height: 20px;
+    color: #a8a8b3;
+    stroke-width: 3;
+`;
+
+export const Loading = styled(RefreshCw)`
+    width: 40px;
+    height: 40px;
     color: #a8a8b3;
     stroke-width: 3;
 `;

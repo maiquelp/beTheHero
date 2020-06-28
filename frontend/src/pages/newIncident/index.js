@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import { Container, Content, Section, H1, P, ArrowLeftButton } from '../../components/Container'; // component styled-components   
+import ReqButton from '../../components/ReqButton';
 import { Form, Input, TextArea } from './styles.js'; // page styled-components
 import logoImg from '../../assets/logo.svg'
 
@@ -12,6 +13,7 @@ const NewIncident = () => {
     const [ title, setTitle ] = useState('');
     const [ description, setDescription ] = useState('');
     const [ value, setValue ] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const token = localStorage.getItem('token');
 
@@ -19,6 +21,8 @@ const NewIncident = () => {
 
     const handleNewIncident = async (e) => {
         e.preventDefault();
+
+        setLoading(true);
 
         const data = { title, description, value }
 
@@ -32,7 +36,8 @@ const NewIncident = () => {
             history.push('/profile')
 
         } catch (error) {
-            alert('Erro ao cadastrar, tente novamente')
+            alert('Erro ao cadastrar, tente novamente');
+            setLoading(false);
         }
     }
 
@@ -54,7 +59,7 @@ const NewIncident = () => {
                         required />
                     <Input value={value} type="number" min="0.01" step="0.01" onChange={ e => setValue(e.target.value)} 
                         placeholder="Valor" required />
-                    <button className="button" type="submit">Cadastrar</button>
+                    <ReqButton  loading={loading} text={'Cadastrar'} loadingText={'Cadastrando'} />
                 </Form>
             </Content>
         </Container>

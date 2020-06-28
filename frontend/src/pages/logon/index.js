@@ -5,7 +5,8 @@ import api from '../../services/api';
 
 import logoImg from '../../assets/logo.svg';
 import heroesImg from '../../assets/heroes.png';
-import { Container, Section, Form, Input, H1, LoginButton, Spinner } from './styles'; //styled-components
+import { Container, Section, Form, Input, H1, LoginButton } from './styles'; //styled-components
+import ReqButton from '../../components/ReqButton';
 
 const Logon = props => {
     const [email, setEmail] = useState('');
@@ -17,9 +18,6 @@ const Logon = props => {
         e.preventDefault();
 
         setLoading(true);
-
-        setTimeout(async () => {
-          
 
         try {
             const res = await api.post('session', { email, password });
@@ -39,7 +37,6 @@ const Logon = props => {
             }
 
         }
-        }, 2000);
     }
             
     return (
@@ -51,11 +48,8 @@ const Logon = props => {
                     <Input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
                     <Input type="password" placeholder="Senha" value={password} 
                         onChange={e => setPassword(e.target.value)} />
-                    <button className="button" type="submit" disabled={loading}>
-                        {loading && <Spinner />}
-                        {loading && <span>Entrando</span>}
-                        {!loading && <span>Entrar</span>}
-                    </button>
+                   
+                    <ReqButton  loading={loading} text={'Entrar'} loadingText={'Entrando'} />
                     
                     <Link className="back-link" to="/register">
                         <LoginButton />

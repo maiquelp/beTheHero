@@ -5,11 +5,11 @@ import apiIbge from '../../services/apiIbge';
 import { mask, unMask } from 'remask'; //https://github.com/brunobertolini/remask
 
 import { Container, Content, Section, H1, P, ArrowLeftButton } from '../../components/Container'; // component styled-components   
+import ReqButton from '../../components/ReqButton';
 import { Form, Personal, Input, Address} from './styles.js'; // page styled-components
 import logoImg from '../../assets/logo.svg'
 
 const Register = () => {
-
     const [ name, setName ] = useState('');
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
@@ -18,11 +18,14 @@ const Register = () => {
     const [ cityList, setCityList ] = useState([]);
     const [ uf, setUf ] = useState('');
     const [ ufList, setUfList ] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     const history = useHistory();
 
     const handleRegister = async e => {
         e.preventDefault();
+
+        setLoading(true);
     
         const data = { name, email, password, whatsapp, city, uf }
         
@@ -37,7 +40,8 @@ const Register = () => {
 
         } catch (err) {
 
-            alert('Erro no cadastro, verifique os dados e tente novamente.')
+            alert('Erro no cadastro, verifique os dados e tente novamente.');
+            setLoading(false);
         }
     }
 
@@ -103,7 +107,7 @@ const Register = () => {
                             {cityList.map(e => (<option key={e.id} value={e.nome}>{e.nome}</option>))}
                         </select>    
                     </Address>
-                    <button className="button" type="submit">Cadastrar</button>
+                    <ReqButton  loading={loading} text={'Cadastrar'} loadingText={'Cadastrando'} />
                 </Form>
             </Content>
         </Container>

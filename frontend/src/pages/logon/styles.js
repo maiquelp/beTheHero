@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 import { LogIn } from '@styled-icons/feather';
-import { RefreshCw } from '@styled-icons/feather';
-
 
 export const Container = styled.div`
     width: 100%;
@@ -28,15 +26,6 @@ export const LoginButton = styled(LogIn)`
     height: 20px;
     color: #e02041;
     stroke-width: 3;
-`;
-
-export const Spinner = styled(RefreshCw)`
-    animation: rotation 2s infinite linear;
-    width: 18px;
-    height: 18px;
-    color: #fff;
-    stroke-width: 3;
-    margin-right: 5px;
 `;
 
 export const Input = styled.input`

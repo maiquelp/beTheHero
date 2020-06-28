@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import { Container, Content, Section, H1, P, Form, Input, ArrowLeftButton } from '../../components/Container';// component styled-components
+import ReqButton from '../../components/ReqButton';
 import logoImg from '../../assets/logo.svg'
 
 import api from '../../services/api';
@@ -9,11 +10,14 @@ import api from '../../services/api';
 const Recover = () => {
 
     const [ email, setEmail ] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const history = useHistory();
 
     const handleRecover = async (e) => {
         e.preventDefault();
+
+        setLoading(true);
 
         try {
             await api.put('recover', {email})
@@ -23,7 +27,8 @@ const Recover = () => {
             history.push('/')
 
         } catch (error) {
-            alert('Verifique o email e tente novamente')
+            alert('Verifique o email e tente novamente');
+            setLoading(false);
         }
     }
 
@@ -41,7 +46,8 @@ const Recover = () => {
             </Section>
             <Form onSubmit={handleRecover}> 
                 <Input value={email} onChange={ e => setEmail(e.target.value)} placeholder="email" />
-                <button className="button" type="submit">Enviar</button>
+                <ReqButton  loading={loading} text={'Enviar'} loadingText={'Enviando'} />
+
             </Form>
         </Content>
         </Container>

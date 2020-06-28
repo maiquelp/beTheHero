@@ -6,7 +6,7 @@ import api from '../../services/api';
 
 import logoImg from '../../assets/logo.svg';
 import { Container, Header, Span, Img, StyledLink, Button, H1, Ul, Li, Trash, Delete, Strong, P, 
-            PowerButton, XButton, Trash2Button } from './styles.js'; //styled-components
+            PowerButton, XButton, Trash2Button, Loading } from './styles.js'; //styled-components
 
 const Profile = () => {
     const [incidents, setIncidents] = useState([]);
@@ -17,6 +17,7 @@ const Profile = () => {
     const history = useHistory();
 
     useEffect( () => {
+        setTimeout(
         api.get('profile', {
             headers: {
                 Authorization: `Bearer ${token}`
@@ -24,6 +25,7 @@ const Profile = () => {
         }).then( res => {
             setIncidents(res.data)
         })
+        , 2000);
     }, [token]);
 
     const handleDeleteIncident = async id => {

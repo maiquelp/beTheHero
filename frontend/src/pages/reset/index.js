@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import { Container, Content, Section, H1, P, Form, Input, ArrowLeftButton } from '../../components/Container';// component styled-components
+import ReqButton from '../../components/ReqButton';
 import logoImg from '../../assets/logo.svg'
 
 import api from '../../services/api';
@@ -9,11 +10,14 @@ import api from '../../services/api';
 const Reset = () => {
 
     const [ password, setPassword ] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const history = useHistory();
 
     const handleReset = async (e) => {
         e.preventDefault();
+
+        setLoading(true);
 
         const params = (new URL(document.location)).searchParams;
 
@@ -25,7 +29,8 @@ const Reset = () => {
             history.push('/')
 
         } catch (error) {
-            alert('Falha ao criar nova senha, tente novamente ou solicite a recuperação de senha novamente')
+            alert('Falha ao criar nova senha, tente novamente ou solicite a recuperação de senha novamente');
+            setLoading(false);
         }
     }
 
@@ -43,7 +48,7 @@ const Reset = () => {
                 </Section>
                 <Form onSubmit={handleReset}> 
                     <Input value={password} type="password" onChange={ e => setPassword(e.target.value)} placeholder="Nova Senha" />
-                    <button className="button" type="submit">Enviar</button>
+                    <ReqButton  loading={loading} text={'Enviar'} loadingText={'Enviando'} />
                 </Form>
             </Content>
         </Container>
