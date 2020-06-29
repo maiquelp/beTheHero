@@ -10,6 +10,7 @@ import { Container, Header, Span, Img, StyledLink, Button, H1, Ul, Li, Trash, De
 
 const Profile = () => {
     const [incidents, setIncidents] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     const ongName = localStorage.getItem('ongName');
     const token = localStorage.getItem('token');
@@ -17,15 +18,15 @@ const Profile = () => {
     const history = useHistory();
 
     useEffect( () => {
-        setTimeout(
+        setLoading(true)
         api.get('profile', {
             headers: {
                 Authorization: `Bearer ${token}`
             }
         }).then( res => {
             setIncidents(res.data)
-        })
-        , 2000);
+        });
+        setLoading(false);
     }, [token]);
 
     const handleDeleteIncident = async id => {
@@ -69,6 +70,7 @@ const Profile = () => {
             </Header>
 
             <H1>Casos cadastrados</H1>
+            {loading ? <Loading /> : null}
             <Ul>
                 {incidents.map( incident => (
                     <Li key={incident.id}>

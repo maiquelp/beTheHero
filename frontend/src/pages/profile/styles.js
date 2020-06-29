@@ -46,10 +46,15 @@ export const XButton = styled(X)`
 `;
 
 export const Loading = styled(RefreshCw)`
-    width: 40px;
-    height: 40px;
+    animation: rotation 2s infinite linear;
+    width: 50px;
+    height: 50px;
     color: #a8a8b3;
     stroke-width: 3;
+    top: 50%;
+    left: 50%;
+    z-index: 1000;
+    position: absolute;
 `;
 
 export const Trash2Button = styled(Trash2)`
