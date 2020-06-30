@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import ReactDOM from 'react-dom';
 
 import api from '../../services/api';
 
@@ -11,6 +10,7 @@ import { Container, Header, Span, Img, StyledLink, Button, H1, Ul, Li, Trash, De
 const Profile = () => {
     const [incidents, setIncidents] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [deleting, setDeleting] = useState([]);
 
     const ongName = localStorage.getItem('ongName');
     const token = localStorage.getItem('token');
@@ -45,12 +45,10 @@ const Profile = () => {
     }
 
     const handleConfirmDelete = (id) => {
-            ReactDOM.render(
-                <Delete type="button" onClick={() => handleDeleteIncident(id)}>
-                    <Trash2Button />
-                </Delete>,
-                document.getElementById(id)
-          );
+        setDeleting( deleting => {
+            const newdel = [...deleting, id]; // coping the old array and adding the new element
+            return newdel; 
+        })       
     }
 
     const handleLogout = () => {
@@ -84,6 +82,11 @@ const Profile = () => {
                         <Trash type="button" onClick={() => handleConfirmDelete(incident.id)}>
                             <XButton />
                         </Trash>
+                        {deleting.includes(incident.id) ? 
+                            <Delete type="button" onClick={() => handleDeleteIncident(incident.id)}>
+                                <Trash2Button />
+                            </Delete> : null
+                        }
                         <div id={incident.id}></div>
                     </Li>    
                 ))}

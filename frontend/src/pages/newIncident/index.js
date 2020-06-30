@@ -54,7 +54,7 @@ const NewIncident = () => {
                     </Link>
                 </Section>
                 <Form onSubmit={handleNewIncident}> 
-                    <Input value={title} onChange={ e => setTitle(e.target.value)} placeholder="Título do caso" required />
+                    <Input value={title} onChange={ e => setTitle(e.target.value)} placeholder="Título do caso" required autoFocus />
                     <TextArea value={description} onChange={ e => setDescription(e.target.value)} placeholder="Descrição" 
                         required />
                     <Input value={value} type="number" min="0.01" step="0.01" onChange={ e => setValue(e.target.value)} 

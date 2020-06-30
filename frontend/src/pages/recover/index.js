@@ -45,7 +45,7 @@ const Recover = () => {
                 </Link>
             </Section>
             <Form onSubmit={handleRecover}> 
-                <Input value={email} onChange={ e => setEmail(e.target.value)} placeholder="email" />
+                <Input value={email} onChange={ e => setEmail(e.target.value)} placeholder="email" autoFocus />
                 <ReqButton  loading={loading} text={'Enviar'} loadingText={'Enviando'} />
 
             </Form>

@@ -47,7 +47,7 @@ const Reset = () => {
                     </Link>
                 </Section>
                 <Form onSubmit={handleReset}> 
-                    <Input value={password} type="password" onChange={ e => setPassword(e.target.value)} placeholder="Nova Senha" />
+                    <Input value={password} type="password" onChange={ e => setPassword(e.target.value)} placeholder="Nova Senha" autoFocus />
                     <ReqButton  loading={loading} text={'Enviar'} loadingText={'Enviando'} />
                 </Form>
             </Content>

@@ -85,7 +85,7 @@ const Register = () => {
                 <Form onSubmit={handleRegister}>
                     <Personal>
                         <Input placeholder="Nome da ONG" value={name} 
-                            onChange={ e => setName( e.target.value )} required />
+                            onChange={ e => setName( e.target.value )} required autoFocus />
                         <Input type="email" placeholder="E-mail" value={email} 
                             onChange={ e => setEmail( e.target.value ) } required />
                         <Input type="password" placeholder="Senha" value={password} 
@@ -93,7 +93,7 @@ const Register = () => {
                         <Input placeholder="Whatsapp(DDD+Numero)" value={whatsapp} 
                             onChange={ e => applyWhatsappMask( e.target.value )}
                             // onBlur={ e => verifyWhatsappFormat( e.target.value )}
-                            maxLength="17" required  />
+                            maxLength="17" required />
                     </Personal>
                     <Address>
                         <select style={{ width: 100 }} value={uf} maxLength="2"

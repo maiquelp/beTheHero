@@ -45,7 +45,7 @@ const Logon = props => {
                 <img src={logoImg} alt="logo" />
                 <Form onSubmit={handleLogin}>
                     <H1>Faça seu logon</H1>
-                    <Input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
+                    <Input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} autoFocus />
                     <Input type="password" placeholder="Senha" value={password} 
                         onChange={e => setPassword(e.target.value)} />
                    
