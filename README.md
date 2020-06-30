@@ -6,20 +6,14 @@ A aplicação tem por objetivo aproximar entidades necessitadas á usuários dis
 
 As seguintes alterações foram feitas após a finalização do projeto da RocketSeat:
 
+- Exibição de um spinner nos botões de requisição e carregamento dos casos.
 - Migração de CSS modules para Styled-components.
-
 - Adição de uma confirmação para exclusão de casos.
-
-- Aplicação de uma máscara no campo whatsapp.
-
-- Utilização da API do IBGE para preenchimento dos campos uf e cidade.
-
-- Envio de e-mail para confirmação de cadastro.
-
+- Aplicação de uma máscara no campo whatsapp do cadastro de Ongs.
+- Utilização da API do IBGE para preenchimento dos campos uf e cidade no cadastro de Ongs.
+- Envio de e-mail para confirmação do cadastro de Ongs.
 - Recuperação de senha.
-
 - Autenticação por e-mail e senha.
-
 - Criação de um favicon.
 
 # Tecnologias
