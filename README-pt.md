@@ -20,49 +20,49 @@
 <strong>
 <br>
 <p align="center">
-    <a href="README.md">English</a>
+    <a href="README.md">Inglês</a>
     ·
-    <a href="README-pt.md">Portuguese</a>
+    <a href="README-pt.md">Português</a>
 </p>
 
 <p align="center">
-  <a href="#bookmark-about">About</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#bookmark-sobre">Sobre</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#arrow_up-upgrades">Upgrades</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#computer-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#wrench-tools">Tools</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#package-installation">Installation</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#camera_flash-screenshots">Screenshots</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#memo-license">License</a>
+  <a href="#computer-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#wrench-ferramentas">Ferramentas</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#package-instalação">Instalação</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#camera_flash-telas">Telas</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#memo-licença">Licença</a>
 </p>
 </strong>
 <br>
 <p align="center">
-    <img alt="Screens" src=".github/screens.png"  height="350px" />
+    <img alt="Screens" src=".github/screens.png" height="350px" />
 </p>
 
-## :bookmark: About
+## :bookmark: Sobre
 
-The ** BeTheHero ** aims to bring together entities in need, to users willing to help them. The backend consists of a Rest API running on a NodeJS server. The frontend was made with React and the mobile app with React Native. This project was implemented during the **Semana Omni Stack #11** da **[Rocketseat](https://rocketseat.com.br/)**.
+O **BeTheHero** tem por objetivo aproximar entidades necessitadas á usuários dispostos a ajudá-las. O backend consiste em uma API Rest rodando em um servidor NodeJS. O frontend foi feito com React e o app mobile com React Native. Este projeto foi implementado durante a **Semana Omni Stack #11** da **[Rocketseat](https://rocketseat.com.br/)**.
 
 <br>
 
 ## :arrow_up: Updates
 
-The following changes were made after the RocketSeat project was completed:
+As seguintes alterações foram feitas após a finalização do projeto da RocketSeat:
 
-- Display of a spinner on the request buttons and loading the cases.
-- Migration of CSS modules to Styled-components.
-- Added a confirmation to exclude cases.
-- Application of a mask in the whatsapp field of the NGO register.
-- Use of the IBGE API to fill in the uf and city fields in the NGO register.
-- Sending an email to confirm the registration of NGOs.
-- Password recovery.
-- Authentication by email and password.
-- Creating a favicon.
+- Exibição de um spinner nos botões de requisição e carregamento dos casos.
+- Migração de CSS modules para Styled-components.
+- Adição de uma confirmação para exclusão de casos.
+- Aplicação de uma máscara no campo whatsapp do cadastro de Ongs.
+- Utilização da API do IBGE para preenchimento dos campos uf e cidade no cadastro de Ongs.
+- Envio de e-mail para confirmação do cadastro de Ongs.
+- Recuperação de senha.
+- Autenticação por e-mail e senha.
+- Criação de um favicon.
 
 <br>
 
-## :computer: Technologies
+## :computer: Tecnologias
 
 -  **[Typescript](https://www.typescriptlang.org/)**
 -  **[Node.js](https://nodejs.org/)**
@@ -81,7 +81,7 @@ The following changes were made after the RocketSeat project was completed:
 
 <br>
 
-## :wrench: Tools
+## :wrench: Ferramentas
 
 - **[VisualStudio Code](https://code.visualstudio.com/)**
 - **[Insomnia](https://insomnia.rest/)**
@@ -90,11 +90,11 @@ The following changes were made after the RocketSeat project was completed:
 
 <br>
 
-## :package: Installation
+## :package: Instalação
 
-### :heavy_check_mark: **Prerequisites**
+### :heavy_check_mark: **Pré-requisitos**
 
-The following software must be installed:
+Os seguintes softwares devem estar instalados:
   
   - **[Node.js](https://nodejs.org/en/)**
   - **[Git](https://git-scm.com/)**
@@ -104,15 +104,15 @@ The following software must be installed:
 
 <br>
   
-### :arrow_down: **Cloning the repository**
+### :arrow_down: **Clonando o repositório**
 
 ```sh
-  $ git clone https://github.com/maiquelp/Ecoleta.git
+  $ git clone https://github.com/maiquelp/beTheHero.git
 ```
 
 <br>
 
-### :arrow_forward:	**Running the applications**
+### :arrow_forward:	**Rodando as aplicações**
 
 - :package: API
 
@@ -165,7 +165,10 @@ The following software must be installed:
 
 <br>
 
-## :memo: License
+## :memo: Licença
 
-This project is under the **MIT** license.
+Este projeto está sob uma licença **MIT**.
+
+
+
 
