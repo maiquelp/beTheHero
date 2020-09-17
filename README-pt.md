@@ -46,7 +46,7 @@ O **BeTheHero** tem por objetivo aproximar entidades necessitadas á usuários d
 
 <br>
 
-## :arrow_up: Updates
+## :arrow_up: Upgrades
 
 As seguintes alterações foram feitas após a finalização do projeto da RocketSeat:
 

@@ -46,7 +46,7 @@ The **BeTheHero** aims to bring together entities in need, to users willing to h
 
 <br>
 
-## :arrow_up: Updates
+## :arrow_up: Upgrades
 
 The following changes were made after the RocketSeat project was completed:
 
