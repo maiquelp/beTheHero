@@ -42,7 +42,7 @@
 
 ## :bookmark: About
 
-The ** BeTheHero ** aims to bring together entities in need, to users willing to help them. The backend consists of a Rest API running on a NodeJS server. The frontend was made with React and the mobile app with React Native. This project was implemented during the **Semana Omni Stack #11** da **[Rocketseat](https://rocketseat.com.br/)**.
+The **BeTheHero** aims to bring together entities in need, to users willing to help them. The backend consists of a Rest API running on a NodeJS server. The frontend was made with React and the mobile app with React Native. This project was implemented during the **Semana Omni Stack #11** of **[Rocketseat](https://rocketseat.com.br/)**.
 
 <br>
 
@@ -148,15 +148,19 @@ The following software must be installed:
 
 <br>
 
-## :camera_flash: Telas
+## :camera_flash: Screenshots
 
 - Frontend
+
+
 ![Main](.github/screenshots/main.png)
 ![ONG](.github/screenshots/ong.png)
 ![Incident](.github/screenshots/incident.png)
 ![Profile](.github/screenshots/profile.png)
 
 - Mobile
+
+
 ![Splash](.github/screenshots/splash_mobile.png)
 ![Incidents](.github/screenshots/incidents_mobile.png)
 ![Incident](.github/screenshots/incident_mobile.png)

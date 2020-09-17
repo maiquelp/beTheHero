@@ -151,12 +151,16 @@ Os seguintes softwares devem estar instalados:
 ## :camera_flash: Telas
 
 - Frontend
+
+
 ![Main](.github/screenshots/main.png)
 ![ONG](.github/screenshots/ong.png)
 ![Incident](.github/screenshots/incident.png)
 ![Profile](.github/screenshots/profile.png)
 
 - Mobile
+
+
 ![Splash](.github/screenshots/splash_mobile.png)
 ![Incidents](.github/screenshots/incidents_mobile.png)
 ![Incident](.github/screenshots/incident_mobile.png)
