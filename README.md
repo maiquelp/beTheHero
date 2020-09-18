@@ -64,7 +64,7 @@ The following changes were made after the RocketSeat project was completed:
 
 ## :computer: Technologies
 
--  **[Typescript](https://www.typescriptlang.org/)**
+-  **[Javascript](https://www.w3schools.com/js/)**
 -  **[Node.js](https://nodejs.org/)**
 -  **[Express](https://expressjs.com/)**
 -  **[Knex](http://knexjs.org/)**
@@ -107,7 +107,7 @@ The following software must be installed:
 ### :arrow_down: **Cloning the repository**
 
 ```sh
-  $ git clone https://github.com/maiquelp/Ecoleta.git
+  $ git clone https://github.com/maiquelp/beTheHero.git
 ```
 
 <br>
