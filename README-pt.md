@@ -64,7 +64,7 @@ As seguintes alterações foram feitas após a finalização do projeto da Rocke
 
 ## :computer: Tecnologias
 
--  **[Typescript](https://www.typescriptlang.org/)**
+-  **[Javascript](https://www.w3schools.com/js/)**
 -  **[Node.js](https://nodejs.org/)**
 -  **[Express](https://expressjs.com/)**
 -  **[Knex](http://knexjs.org/)**
