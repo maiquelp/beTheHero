@@ -8,13 +8,13 @@ module.exports = {
         now.setHours(now.getHours() - 3);
 
         try {
-            const user = await connection('ong').where({id: id, token: token}).
+            const user = await connection('user').where({token: token, id: id}).
                 andWhere('tokenExpiration', '>', now).
                 select('id', 'tokenExpiration').first();
 
             if (!user) return res.status(400).send('Verification failed, try to login and require a new verification mail')
 
-            await connection('ong').where('id', id).update('verified', 1);
+            await connection('user').where('id', id).update('verified', 1);
 
             return res.status(204).send();
             

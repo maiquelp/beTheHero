@@ -81,7 +81,7 @@ export const GlobalStyle = createGlobalStyle`
     .back-link {
         display: flex;
         align-items: center;
-        margin-top: 40px;
+        margin-top: 22px;
         color: #41414d;
         font-size: 18px;
         text-decoration: none;

@@ -26,6 +26,7 @@ export const LoginButton = styled(LogIn)`
     height: 20px;
     color: #e02041;
     stroke-width: 3;
+    margin-right: 5px;
 `;
 
 export const Input = styled.input`
@@ -33,7 +34,13 @@ export const Input = styled.input`
 `;
 
 export const H1 = styled.h1`
-    font-size: 32px;
-    margin-bottom: 32px;
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #41414d;
+`;
+
+export const H2 = styled.h2`
+    font-size: 20px;
+    margin-bottom: 8px;
     color: #41414d;
 `;

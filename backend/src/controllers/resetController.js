@@ -9,7 +9,7 @@ module.exports = {
         now.setHours(now.getHours() - 3);
 
         try {
-            const user = await connection('ong').where({id: id, token: token}).
+            const user = await connection('user').where({id: id, token: token}).
                 andWhere('tokenExpiration', '>', now).
                 select('id', 'tokenExpiration').first();
 
@@ -17,7 +17,7 @@ module.exports = {
 
             const password = await bcrypt.hash(req.body.password, 10);
     
-            await connection('ong').where('id', id).update('password', password);
+            await connection('user').where('id', id).update('password', password);
 
             return res.status(204).send();
             

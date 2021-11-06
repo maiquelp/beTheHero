@@ -37,24 +37,24 @@ export default StyleSheet.create({
         color: '#737380'
     },
 
-    incidentList: {
+    userList: {
         marginTop: 32
     },
 
-    incident: {
+    user: {
         padding: 24,
         borderRadius: 8,
         backgroundColor: '#fff',
         marginBottom: 16
     },
 
-    incidentProperty: {
+    userProperty: {
         fontSize: 14,
         color: '#41414d',
         fontWeight: 'bold'
     },
 
-    incidentValue: {
+    userValue: {
         marginTop: 8,
         fontSize: 15,
         marginBottom: 24,

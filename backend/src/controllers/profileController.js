@@ -3,10 +3,17 @@ const connection = require('../database/connection');
 module.exports = {
 
     async index(req, res) {
-        const ong_id = req.userId;
+        const user_id = req.userId;
 
-        const incident = await connection('incident').where('ong_id', ong_id).select('*');
+        const asset = await connection('asset').where('user_id', user_id).select('*');
+   
+        const [totalValue] = await connection('asset').where('user_id', user_id).sum('value');
         
-        return res.json(incident)
+        asset.map(e => {
+          const percent = e.value / totalValue['sum(`value`)'];
+          e.percent = percent;
+        });
+           
+        return res.json(asset)
     }
 }    

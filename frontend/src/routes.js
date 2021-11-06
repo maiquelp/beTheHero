@@ -7,7 +7,7 @@ import Recover from './pages/recover';
 import Reset from './pages/reset';
 import Verify from './pages/verify';
 import Profile from './pages/profile';
-import NewIncident from './pages/newIncident';
+import NewAsset from './pages/newAsset';
 import { GlobalStyle } from './components/GlobalStyle'; // global styled-component
 
 const Routes = () => {
@@ -21,7 +21,7 @@ const Routes = () => {
                 <Route path="/reset" component={Reset} />
                 <Route path="/verify" component={Verify} />
                 <Route path="/profile" component={Profile} />
-                <Route path="/incidents/new" component={NewIncident} />
+                <Route path="/assets/new" component={NewAsset} />
             </Switch>
         </BrowserRouter>
     )

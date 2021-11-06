@@ -4,33 +4,30 @@ const generateId = require('../utils/generateId');
 const verifyMail = require('../utils/verifyMail');
 const bcrypt = require('bcryptjs');
 
-//const mailer = require('../config/mailer');
-
-
 module.exports = {
 
     async index(req, res) {
-        const ongSelect = await connection('ong').select('name', 'email', 'whatsapp', 'city', 'uf');
+        const userSelect = await connection('user').select('id', 'name', 'email');
         
-        return res.json(ongSelect)
+        return res.json(userSelect)
     },
 
     async create(req, res) {
-        const {name, email, whatsapp, city, uf} = req.body;
+        const {name, email} = req.body;
 
         const password = await bcrypt.hash(req.body.password, 10);
 
         const id = generateId();
 
-        const hasEmail = await connection('ong').where('email', email).select('email').first();
+        const hasEmail = await connection('user').where('email', email).select('email').first();
         
         try {
             if (hasEmail) {
                 return res.status(400).send('email already exists')
 
             }
-            await connection('ong').insert({
-                id, name, email, password, whatsapp, city, uf
+            await connection('user').insert({
+                id, name, email, password
             });
 
             verifyMail(id, email);
