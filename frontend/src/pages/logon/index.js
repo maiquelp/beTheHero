@@ -4,8 +4,8 @@ import { Link, useHistory } from 'react-router-dom';
 import api from '../../services/api';
 
 import logoImg from '../../assets/logo.svg';
-import homeImg from '../../assets/home.png';
-import { Container, Section, Form, Input, H1, H2, LoginButton } from './styles'; //styled-components
+import heroesImg from '../../assets/heroes.png';
+import { Container, Section, Form, Input, H1, LoginButton } from './styles'; //styled-components
 import ReqButton from '../../components/ReqButton';
 
 const Logon = props => {
@@ -22,7 +22,7 @@ const Logon = props => {
         try {
             const res = await api.post('session', { email, password });
             localStorage.setItem('token', res.data.token);
-            localStorage.setItem('userName', res.data.name);
+            localStorage.setItem('ongName', res.data.name);
 
             history.push('/profile');
 
@@ -44,8 +44,7 @@ const Logon = props => {
             <Section>
                 <img src={logoImg} alt="logo" />
                 <Form onSubmit={handleLogin}>
-                    <H1>Faça o balanceamento do seu portfólio de investimentos</H1>
-                    <H2>Logon</H2>
+                    <H1>Faça seu logon</H1>
                     <Input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} autoFocus />
                     <Input type="password" placeholder="Senha" value={password} 
                         onChange={e => setPassword(e.target.value)} />
@@ -63,7 +62,7 @@ const Logon = props => {
                     
                 </Form>
             </Section>
-            <img src={homeImg} alt="heroes" />
+            <img src={heroesImg} alt="heroes" />
         </Container>
     )
 }

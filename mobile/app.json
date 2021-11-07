@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Scales",
-    "slug": "scales",
+    "name": "Hero",
+    "slug": "hero",
     "platforms": [
       "ios",
       "android",
@@ -13,7 +13,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#fff"
+      "backgroundColor": "#e02041"
     },
     "updates": {
       "fallbackToCacheTimeout": 0

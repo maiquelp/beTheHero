@@ -38,7 +38,7 @@ const Recover = () => {
             <Section>
                 <img src={logoImg} alt="logo"/>
                 <H1>Recuperação de Senha</H1>
-                <P>Será enviado um email para o endereço informado no cadastro com um link para o recadastramento da senha.</P>
+                <P>Será enviado um email para o endereço informado com um link para recadastramento da senha.</P>
                 <Link className="back-link" to="/">
                     <ArrowLeftButton size={16} color="#E02041" />
                     Home

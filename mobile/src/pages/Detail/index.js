@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useNavigation, useRoute } from '@react-navigation/native';
-import { View, Image, TouchableOpacity, Text, Linking, FlatList } from 'react-native';
-import api from '../../services/api'
-//import * as MailComposer from 'expo-mail-composer';
+import { View, Image, TouchableOpacity, Text, Linking } from 'react-native';
+import * as MailComposer from 'expo-mail-composer';
 
 import styles from './styles';
 import logoImg from '../../assets/logo.png';
@@ -12,45 +11,27 @@ import { Feather } from '@expo/vector-icons';
 export default function Detail() {
     const navigation = useNavigation();
     const route = useRoute();
-    const user = route.params;
+    const incident = route.params;
+    const value = Intl.NumberFormat('pt-BR', { 
+        style: 'currency',
+        currency: 'BRL'
+    }).format(incident.value);
+    const message = `Olá ${incident.name}, gostaria de ajudar no caso "${incident.title}", com o valor de ${value}`;
 
-    const [ assets, setAssets ] = useState([]);
-
-    const [ loading, setLoading ] = useState(false);
-   
     function navigateBack() {
         navigation.goBack()
     };
 
-    function getAssetPercent(value) {
-        let total = 0;
-        let percent = 0;
-        if (assets.length >= 1) {
-          assets.map(e => {
-            total = total + e.value
-          });
-          
-          percent = value / total * 100
-          return percent.toFixed(2)
-        }
-    };
-
-    async function loadAssets() {
-        if (loading) {
-            return
-        }
-
-        setLoading(true);
-
-        const res = await api.get(`mobileasset/${user.id}`);
-        setAssets([...res.data]);
-      
-        setLoading(false)
+    function sendWhatsapp() {
+        Linking.openURL(`whatsapp://send?phone=${incident.whatsapp}&text=${message}`);   
     }
-
-    useEffect(() => {
-        loadAssets()
-    }, []);
+    function sendMail() {
+        MailComposer.composeAsync({
+            subject: `Herói do caso "${incident.title}"`,
+            recipients: [incident.email],
+            body: message,
+        })
+    }
 
     return (
         <View style={styles.container}>
@@ -60,21 +41,17 @@ export default function Detail() {
                     <Feather name='arrow-left' size={28} color='#e02041' />
                 </TouchableOpacity>
             </View>
-           
-            <FlatList data={assets} showsVerticalScrollIndicator={false} 
-                keyExtractor={asset => String(asset.id)}
-                onEndReached={loadAssets}
-                onEndReachedThreshold={0.2} 
-                renderItem={({ item: asset}) =>(
-                    <View style={styles.asset}>
-                        <Text style={styles.assetProperty}>Ativo: {asset.title}</Text>
-                        <Text style={styles.assetProperty}>Valor: {asset.value} </Text>
-                        <Text style={styles.assetProperty}>Allocation: {getAssetPercent(asset.value)}%</Text>
-                    </View>
-             )}
-             />
 
-            {/* <View style={styles.contactBox}>
+            <View style={styles.incident}>
+                <Text style={[styles.incidentProperty, {marginTop: 0}]}>Ong: </Text>
+                <Text style={styles.incidentValue}>{incident.name} de {incident.city}/{incident.uf}</Text>
+                <Text style={styles.incidentProperty}>Caso: </Text>
+                <Text style={styles.incidentValue}>{incident.title}</Text>
+                <Text style={styles.incidentProperty}>Valor: </Text>
+                <Text style={styles.incidentValue}>{value}</Text>
+            </View>
+
+            <View style={styles.contactBox}>
                 <Text style={styles.heroTitle}>Salve o dia!</Text>
                 <Text style={styles.heroTitle}>Seja o herói desse caso.</Text>
                 <Text style={styles.heroDescription}>Entre em contato:</Text>
@@ -86,7 +63,7 @@ export default function Detail() {
                         <Text style={styles.actionText}>E-mail</Text>
                     </TouchableOpacity>
                 </View>
-            </View> */}
+            </View>
         </View>
     );
 }

@@ -84,14 +84,14 @@ export const H1 = styled.h1`
 
 export const Ul = styled.ul`
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 24px;
     list-style: none;
 `;
 
 export const Li = styled.li`
     background: #fff;
-    padding: 14px;
+    padding: 24px;
     border-radius: 8px;
     position: relative;
 `;
@@ -99,8 +99,8 @@ export const Li = styled.li`
 export const Trash = styled.button`
     background: #fff;
     position: absolute;
-    right: 14px;
-    top: 14px;
+    right: 24px;
+    top: 24px;
     border: 0;
     :hover {
         opacity: 0.8;
@@ -110,14 +110,14 @@ export const Trash = styled.button`
 export const Delete = styled.button`
     background: #fff;
     position: absolute;
-    right: 46px;
-    top: 14px;
+    right: 50px;
+    top: 24px;
     border: 0;
 `;
 
 export const Strong = styled.strong`
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 16px;
     color: #41414d;
 `;
 
@@ -126,6 +126,6 @@ export const P = styled.p`
     line-height: 21px;
     font-size: 16px;
     & + strong {
-        margin-top: 14px;
+        margin-top: 32px;
     }
 `;

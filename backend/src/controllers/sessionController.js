@@ -8,7 +8,7 @@ module.exports = {
     async create(req, res) {
         const { email, password } = req.body;
 
-        const user = await connection('user').where('email', email).select('password', 'name', 'id', 'verified').first();
+        const user = await connection('ong').where('email', email).select('password', 'name', 'id', 'verified').first();
 
         try {
             if ((!user) || (!await bcrypt.compare(password, user.password))) {

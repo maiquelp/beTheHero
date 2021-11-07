@@ -11,17 +11,16 @@ module.exports = async function verifyMail(id, email) {
 
     try {
 
-        await connection('user').where('id', id).update({
+        await connection('ong').where('id', id).update({
             token: token,
             tokenExpiration: now
         });
 
         mailer.sendMail({
             to: email,
-            from: 'verify@scales.com',
+            from: 'verify@bethehero.com',
             template: 'auth/verify',
-            context: {token, id},
-            subject: 'Subscription Confirmation'
+            context: {token, id}
         }, (err) => {
             if (err) 
                 return console.log('Error sending verification email');

@@ -8,23 +8,22 @@ module.exports = {
         const { email } = req.body;
 
         try {
-            const {id} = await connection('user').where('email', email).select('id').first();
+            const {id} = await connection('ong').where('email', email).select('id').first();
 
             const token = generateId();
 
             const now = new Date();
             now.setHours(now.getHours() - 2);
             
-            await connection('user').where('id', id).update({
+            await connection('ong').where('id', id).update({
                 token: token,
                 tokenExpiration: now 
             });
 
             mailer.sendMail({
                 to: email,
-                from: 'noreply@scales.com',
+                from: 'recover@bethehero.com',
                 template: 'auth/recover',
-                subject: 'Password Recovery',
                 context: {token, id}
             }, (err) => {
                 if (err) 

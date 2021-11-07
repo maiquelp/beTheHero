@@ -1,19 +1,20 @@
 {
-  "name": "scales_frontend",
-  "author": "Maiquel",
-  "version": "1.0.0",
+  "name": "bethehero_frontend",
+  "author": "Maiquel & RocketSeat",
+  "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@styled-icons/feather": "^10.0.0",
-    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "axios": "^0.22.0",
+    "axios": "^0.19.2",
     "cross-env": "^7.0.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "^4.0.3",
+    "react-scripts": "3.4.1",
+    "remask": "0.1.0-alpha.5",
     "styled-components": "^5.1.0"
   },
   "scripts": {

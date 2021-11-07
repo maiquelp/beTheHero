@@ -3,14 +3,15 @@ import { Link, useHistory } from 'react-router-dom';
 
 import { Container, Content, Section, H1, P, ArrowLeftButton } from '../../components/Container'; // component styled-components   
 import ReqButton from '../../components/ReqButton';
-import { Form, Input } from './styles.js'; // page styled-components
+import { Form, Input, TextArea } from './styles.js'; // page styled-components
 import logoImg from '../../assets/logo.svg'
 
 import api from '../../services/api';
 
-const NewAsset = () => {
+const NewIncident = () => {
 
     const [ title, setTitle ] = useState('');
+    const [ description, setDescription ] = useState('');
     const [ value, setValue ] = useState('');
     const [loading, setLoading] = useState(false);
 
@@ -18,15 +19,15 @@ const NewAsset = () => {
 
     const history = useHistory();
 
-    const handleNewAsset = async (e) => {
+    const handleNewIncident = async (e) => {
         e.preventDefault();
 
         setLoading(true);
 
-        const data = { title, value }
+        const data = { title, description, value }
 
         try {
-            await api.post('asset', data, {
+            await api.post('incident', data, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -45,17 +46,19 @@ const NewAsset = () => {
             <Content>
                 <Section>
                     <img src={logoImg} alt="logo"/>
-                    <H1>Cadastrar novo ativo</H1>
-                    <P>Cadastre o seu ativo informando o ticker e o valor total de mercado.</P>
+                    <H1>Cadastrar novo caso</H1>
+                    <P>Descreva o caso detalhadamente para encontrar um herói disposto a ajudar.</P>
                     <Link className="back-link" to="/profile">
                         <ArrowLeftButton />
-                        Voltar para Dashboard
+                        Voltar para Cadastro
                     </Link>
                 </Section>
-                <Form onSubmit={handleNewAsset}> 
-                    <Input value={title} onChange={ e => setTitle(e.target.value)} placeholder="Ticker do ativo" required autoFocus />
+                <Form onSubmit={handleNewIncident}> 
+                    <Input value={title} onChange={ e => setTitle(e.target.value)} placeholder="Título do caso" required autoFocus />
+                    <TextArea value={description} onChange={ e => setDescription(e.target.value)} placeholder="Descrição" 
+                        required />
                     <Input value={value} type="number" min="0.01" step="0.01" onChange={ e => setValue(e.target.value)} 
-                        placeholder="Valor total de mercado em R$" required />
+                        placeholder="Valor" required />
                     <ReqButton  loading={loading} text={'Cadastrar'} loadingText={'Cadastrando'} />
                 </Form>
             </Content>
@@ -63,4 +66,4 @@ const NewAsset = () => {
     )
 }
 
-export default NewAsset;
+export default NewIncident;

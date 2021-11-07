@@ -8,11 +8,11 @@ import { Container, Header, Span, Img, StyledLink, Button, H1, Ul, Li, Trash, De
             PowerButton, XButton, Trash2Button, Loading } from './styles.js'; //styled-components
 
 const Profile = () => {
-    const [assets, setAssets] = useState([]);
+    const [incidents, setIncidents] = useState([]);
     const [loading, setLoading] = useState(false);
     const [deleting, setDeleting] = useState([]);
 
-    const userName = localStorage.getItem('userName');
+    const ongName = localStorage.getItem('ongName');
     const token = localStorage.getItem('token');
 
     const history = useHistory();
@@ -24,30 +24,30 @@ const Profile = () => {
                 Authorization: `Bearer ${token}`
             }
         }).then( res => {
-            setAssets(res.data)
+            setIncidents(res.data)
         });
         setLoading(false);
     }, [token]);
 
-    const handleDeleteAsset = async id => {
+    const handleDeleteIncident = async id => {
         try {
-            await api.delete(`asset/${id}`, {
+            await api.delete(`incident/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
             });
 
-            setAssets(assets.filter( asset => asset.id !== id))
+            setIncidents(incidents.filter( incident => incident.id !== id))
 
         } catch (err) {
-            alert('Erro ao deletar, tente novamente')
+            alert('Erro ao deletar, tente noamente')
         }
     }
 
     const handleConfirmDelete = (id) => {
         setDeleting( deleting => {
-            const newDel = [...deleting, id]; // coping the old array and adding the new element
-            return newDel; 
+            const newdel = [...deleting, id]; // coping the old array and adding the new element
+            return newdel; 
         })       
     }
 
@@ -60,37 +60,34 @@ const Profile = () => {
         <Container>
             <Header>
                 <Img src={logoImg} alt="logo" />
-                <Span>Olá, {userName} !</Span>
-                <StyledLink className="button" to="/assets/new">Cadastrar novo ativo</StyledLink>
+                <Span>Olá, {ongName}</Span>
+                <StyledLink className="button" to="/incidents/new">Cadastrar novo caso</StyledLink>
                 <Button onClick={handleLogout} >
                     <PowerButton />
                 </Button>
             </Header>
 
-            <H1>Ativos cadastrados</H1>
+            <H1>Casos cadastrados</H1>
             {loading ? <Loading /> : null}
             <Ul>
-                {assets.map( asset => (
-                    <Li key={asset.id}>
-                        <Strong>Ativo:</Strong>
-                        <P>{asset.title}</P>
+                {incidents.map( incident => (
+                    <Li key={incident.id}>
+                        <Strong>Caso:</Strong>
+                        <P>{incident.title}</P>
+                        <Strong>Desc.</Strong>
+                        <P>{incident.description}</P>
                         <Strong>Valor:</Strong>
                         <P>{Intl.NumberFormat('pt-BR', { 
-                            style: 'currency', currency: 'BRL'}).format(asset.value)}
-                        </P>
-                        <Strong>Percentual:</Strong>
-                        <P>{Intl.NumberFormat('pt-BR', { 
-                            style: 'percent', maximumFractionDigits: 2 }).format(asset.percent)}
-                        </P>
-                        <Trash type="button" onClick={() => handleConfirmDelete(asset.id)}>
+                            style: 'currency', currency: 'BRL'}).format(incident.value)}</P>
+                        <Trash type="button" onClick={() => handleConfirmDelete(incident.id)}>
                             <XButton />
                         </Trash>
-                        {deleting.includes(asset.id) ? 
-                            <Delete type="button" onClick={() => handleDeleteAsset(asset.id)}>
+                        {deleting.includes(incident.id) ? 
+                            <Delete type="button" onClick={() => handleDeleteIncident(incident.id)}>
                                 <Trash2Button />
                             </Delete> : null
                         }
-                        <div id={asset.id}></div>
+                        <div id={incident.id}></div>
                     </Li>    
                 ))}
             </Ul>
